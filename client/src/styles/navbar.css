@@ -1,10 +1,14 @@
 /* Navbar.css */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background-color: #1e90ff;
+  align-items: center;
   padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+  z-index: 1000;
 }
 
 .navbar-logo img {
