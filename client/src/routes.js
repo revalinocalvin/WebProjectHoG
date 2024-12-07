@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './pages/Public/MainPage';
 import FAQPage from './pages/Public/FAQPage';
 import BookingTutorialPage from './pages/Public/BookingTutorialPage';
-import LoginPage from './pages/Auth/LoginPage';
-import RegistrationPage from './pages/Auth/RegistrationPage';
-import DashboardPage from './pages/User/DashboardPage';
+import LoginPage from './pages/Auth/LoginPage.js';
+import RegistrationPage from './pages/Auth/RegistrationPage.js';
+import DashboardPage from './pages/User/DashboardPage.js';
 import PointsRedeemPage from './pages/User/PointsRedeemPage';
 import ProfilePage from './pages/User/ProfilePage';
 import EditProfilePage from './pages/User/EditProfilePage';
@@ -22,7 +22,7 @@ const AppRoutes = () => (
       <Route path="/register" element={<RegistrationPage />} />
       
       {/* Protected Routes */}
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/dashboard" element={<DashboardPage/>} />
       <Route path="/points-redeem" element={<PointsRedeemPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/edit-profile" element={<EditProfilePage />} />
