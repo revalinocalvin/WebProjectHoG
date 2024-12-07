@@ -18,6 +18,7 @@ function App() {
         <div className="packages">
           <h2>Harga Paket</h2>
           <ul>
+            <li><strong>Paket Member</strong> - <strong>Total Waktu</strong> - <strong>Price</strong></li>
             <li>Paket Member - 30 Menit - 9,000</li>
             <li>1 Jam Member - 1h 10m - 9,000</li>
             <li>2 Jam Member - 2h 20m - 18,000</li>

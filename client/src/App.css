@@ -16,14 +16,28 @@
   color: white;
   margin-top: auto; /* Adjust based on navbar height */
   position: relative;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 500;
+}
+
+.packages ul li:first-child {
+  font-weight: bold;
+  background-color: #28a745;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 .content {
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-evenly;
+  padding: 40px;
   background-color: #f2f2f2;
+  border-radius: 10px;
+  margin-top: -50px; /* Overlap effect */
 }
 
 .packages, .specs, .gear {
@@ -32,6 +46,48 @@
   padding: 20px;
   border-radius: 10px;
   width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #00aaff; /* Add border */
+}
+
+.packages ul li {
+  border: 1px solid #00aaff; /* Add border to list items */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.specs::before,
+.gear::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  margin-right: 10px;
+}
+
+.specs::before {
+  background-image: url('../public/vga.png'); /* Add appropriate path */
+}
+
+.gear::before {
+  background-image: url('../public/vga.png'); /* Add appropriate path */
+}
+
+.packages h2::after {
+  content: url('../public/vga.png'); /* Replace with actual icon path */
+  margin-left: 10px;
+}
+
+.specs h2::after {
+  content: url('../public/vga.png'); /* Replace with actual icon path */
+  margin-left: 10px;
+}
+
+.gear h2::after {
+  content: url('../public/vga.png'); /* Replace with actual icon path */
+  margin-left: 10px;
 }
 
 .packages ul {
