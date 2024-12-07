@@ -2,6 +2,36 @@
   font-family: Arial, sans-serif;
   color: #333;
   text-align: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+
+body {
+  background-color: #f0f0f0; /* Neutral background for blank space */
+}
+
+@media (min-aspect-ratio: 4/3) {
+  body {
+    background-color: #fff; /* Black background outside 4:3 area */
+  }
+
+  .landing-page {
+    background-color: #fff; /* White background for main content */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .packages, .specs, .gear {
+    width: 90%;
+    margin-bottom: 20px;
+  }
 }
 
 .header {
@@ -50,11 +80,22 @@
   border: 2px solid #00aaff; /* Add border */
 }
 
-.packages ul li {
+.packages h2, .specs h2, .gear h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+.packages ul li, .specs ul li, .gear ul li {
+  display: flex;
+  justify-content: space-between;
   border: 1px solid #00aaff; /* Add border to list items */
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
+  background-color: rgba(255, 255,255, 0.2);;
 }
 
 .specs::before,
@@ -67,26 +108,33 @@
   margin-right: 10px;
 }
 
+.specs, .gear {
+  border: 2px solid #00aaff;
+  padding: 15px; /* Light background */
+}
+
 .specs::before {
-  background-image: url('../public/vga.png'); /* Add appropriate path */
+  background-image: url('../public/CPU.png');
+  margin-right: 10px;
 }
 
 .gear::before {
-  background-image: url('../public/vga.png'); /* Add appropriate path */
+  background-image: url('../public/HEadset.png');
+  margin-right: 10px;
 }
 
 .packages h2::after {
-  content: url('../public/vga.png'); /* Replace with actual icon path */
+  content: url('../public/tag.png');
   margin-left: 10px;
 }
 
 .specs h2::after {
-  content: url('../public/vga.png'); /* Replace with actual icon path */
+  content: url('../public/RAM.png');
   margin-left: 10px;
 }
 
 .gear h2::after {
-  content: url('../public/vga.png'); /* Replace with actual icon path */
+  content: url('../public/Monitor.png');
   margin-left: 10px;
 }
 
@@ -116,4 +164,16 @@
 .map-image {
   width: 80%;
   border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .packages, .specs, .gear {
+    width: 80%;
+    margin-bottom: 20px;
+  }
 }

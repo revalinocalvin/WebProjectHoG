@@ -31,16 +31,20 @@ function App() {
 
         <div className="specs">
           <h2>Spesifikasi PC</h2>
-          <p>Nvidia (RTX 3070, RTX 3070Ti, RTX 4060 Ti, AMD RX 6600)</p>
-          <p>Processor i5 GEN 12</p>
-          <p>32GB RAM</p>
+          <ul>
+            <li>Nvidia (RTX 3070, RTX 3070Ti, RTX 4060 Ti, AMD RX 6600)</li>
+            <li>Processor i5 GEN 12</li>
+            <li>32GB RAM</li>
+          </ul>
         </div>
 
         <div className="gear">
           <h2>Gear Equipment</h2>
-          <p>ASUS XL2546K 240hz, 360hz</p>
-          <p>Logitech G102 Lightsync</p>
-          <p>DBE GM 220</p>
+          <ul>
+            <li>ASUS XL2546K 240hz, 360hz</li>
+            <li>Logitech G102 Lightsync</li>
+            <li>DBE GM 220</li>
+          </ul>
         </div>
       </div>
 
