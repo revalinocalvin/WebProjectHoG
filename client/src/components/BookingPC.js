@@ -12,7 +12,7 @@ const BookingPC = () => {
             <div className="pc">PC 3</div>
             {/* Tambahkan lebih banyak PC */}
         </div>
-        <button className="tutorial-button">Lihat Tutorial Booking disini</button>
+        <button className="tutorial-button"><a href='../pages/Public/TutorialPage.js'>Lihat Tutorial Booking disini</a></button>
         </div>
     );
 };

@@ -1,4 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+// RegisterPage.js
+import React from 'react';
+import './RegisterPage.css';
 
-export default App;
+const RegisterPage = () => {
+    return (
+        <div className="register-container">
+        <div className="register-card">
+            <h2>Create an Account</h2>
+            <form>
+            <div className="input-group">
+                <label htmlFor="first-name">First Name</label>
+                <input type="text" id="first-name" placeholder="Enter your first name" required />
+            </div>
+            <div className="input-group">
+                <label htmlFor="last-name">Last Name</label>
+                <input type="text" id="last-name" placeholder="Enter your last name" required />
+            </div>
+            <div className="input-group">
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required />
+            </div>
+            <div className="input-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required />
+            </div>
+            <div className="input-group">
+                <label htmlFor="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required />
+            </div>
+            <div className="input-group">
+                <label htmlFor="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password" required />
+            </div>
+            <div className="terms">
+                <label>
+                <input type="checkbox" required /> I agree with the <a href="#">terms and conditions</a>.
+                </label>
+            </div>
+            <button type="submit" className="register-button">Register</button>
+            </form>
+            <p className="login-text">
+            Already have an account? <a href="./LoginPage.js">Log in now</a>
+            </p>
+        </div>
+        </div>
+    );
+};
+
+export default RegisterPage;
