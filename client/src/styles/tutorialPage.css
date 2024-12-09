@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+}
+
+.tutorial-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.tutorial-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.tutorial-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tutorial-image {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+}
