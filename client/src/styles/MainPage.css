@@ -11,29 +11,6 @@
     background-color: #f0f0f0;
   }
   
-  @media (min-aspect-ratio: 4/3) {
-    body {
-      background-color: #fff;
-    }
-  
-    .landing-page {
-      background-color: #fff;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .content {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .packages, .specs, .gear {
-      width: 80%;
-      margin-bottom: 20px;
-    }
-  }
-  
   .header {
     background-image: url('../../public/homepage-bg.png');
     background-size: cover;
@@ -45,23 +22,14 @@
     align-items: center;
     color: white;
     position: relative;
-    font-size: 1.5em;
+    font-size: 2em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 500;
-  }
-  
-  .packages ul li:first-child {
-    font-weight: bold;
-    background-color: #28a745;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 10px;
-    color: white;
   }
   
   .content {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: flex-start;
     padding: 40px;
     background-color: #f2f2f2;
     border-radius: 10px;
@@ -78,11 +46,13 @@
     border: 2px solid #00aaff;
   }
   
-  .packages h2, .specs h2, .gear h2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+  .packages ul li:first-child {
+    font-weight: bold;
+    background-color: #28a745;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: white;
   }
   
   .packages ul li, .specs ul li, .gear ul li {
@@ -95,48 +65,12 @@
     background-color: rgba(255, 255, 255, 0.2);
   }
   
-  .specs::before,
-  .gear::before {
-    content: '';
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-size: contain;
-    margin-right: 10px;
-  }
-  
-  .specs::before {
-    background-image: url('../../public/CPU.png');
-  }
-  
-  .gear::before {
-    background-image: url('../../public/HEadset.png');
-  }
-  
-  .packages h2::after {
-    content: url('../../public/tag.png');
-    margin-left: 10px;
-  }
-  
-  .specs h2::after {
-    content: url('../../public/RAM.png');
-    margin-left: 10px;
-  }
-  
-  .gear h2::after {
-    content: url('../../public/Monitor.png');
-    margin-left: 10px;
-  }
-  
-  .packages ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
   .steps {
     text-align: center;
     padding: 20px;
     background-color: #e0e0e0;
+    margin-top: 20px;
+    border-radius: 10px;
   }
   
   .step-icons {
@@ -149,10 +83,24 @@
     text-align: center;
     padding: 20px;
     background-color: #b3d9ff;
+    margin-top: 20px;
+    border-radius: 10px;
   }
   
   .map-image {
     width: 80%;
     border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .packages, .specs, .gear {
+      width: 80%;
+      margin-bottom: 20px;
+    }
   }
   
