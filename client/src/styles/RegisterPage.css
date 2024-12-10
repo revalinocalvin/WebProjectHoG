@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('path/to/background-pattern.png') no-repeat center center fixed;
+    
     background-size: cover;
 }
     

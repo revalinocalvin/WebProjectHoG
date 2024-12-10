@@ -1,5 +1,6 @@
 // LoginPage.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/loginPages.css';
 
 const LoginPage = () => {
@@ -26,7 +27,7 @@ const LoginPage = () => {
             <button type="submit" className="login-button">Login</button>
             </form>
             <p className="register-text">
-            Don't have an account? <a href="./RegistrationPage.js">Register now</a>
+            Don't have an account? <Link to="/register">Register Now</Link>
             </p>
         </div>
         </div>

@@ -7,11 +7,13 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="../hog-logo-bg.png" alt="Logo" />
+      <Link to="/">
+          <img src="../hog-logo-bg.png" alt="Logo" />
+        </Link>
       </div>
       <div className="navbar-links">
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/rewards">Rewards</Link>
+        <Link to="/main">Rewards</Link>
         <Link to="/login">Login</Link>
       </div>
       <div className="navbar-icons">
