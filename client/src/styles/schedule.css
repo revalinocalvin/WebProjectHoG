@@ -1,0 +1,29 @@
+/* schedule.css */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.schedule-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.schedule-table .booked {
+    background-color: #ffcccb; /* Warna untuk sel yang dipesan */
+    color: #333;
+}
+
+.schedule-table .available {
+    background-color: #d4edda; /* Warna untuk sel yang tersedia */
+    color: #333;
+}

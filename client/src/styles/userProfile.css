@@ -1,0 +1,93 @@
+/* userProfile.css */
+.user-profile {
+width: 300px;
+margin: 20px auto;
+text-align: center;
+font-family: Arial, sans-serif;
+}
+
+.profile-header {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.profile-pic {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+margin-bottom: 10px;
+}
+
+.points {
+background-color: #ffcc00;
+padding: 5px 10px;
+border-radius: 15px;
+color: #fff;
+font-weight: bold;
+}
+
+.billing-info {
+background-color: #007bff;
+color: #fff;
+padding: 10px;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+.billing-time {
+font-size: 1.2em;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.billing-time:before {
+content: '\f017'; /* FontAwesome clock icon */
+font-family: 'FontAwesome';
+margin-right: 5px;
+}
+
+.next-booking {
+background-color: #333;
+color: #fff;
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+.booking-time {
+display: flex;
+justify-content: space-between;
+margin: 10px 0;
+}
+
+button {
+background-color: #007bff;
+color: #fff;
+border: none;
+padding: 10px 15px;
+margin: 5px;
+border-radius: 5px;
+cursor: pointer;
+font-weight: bold;
+}
+
+button:hover {
+background-color: #0056b3;
+}
+
+.history-button {
+background-color: #333;
+color: #fff;
+width: 100%;
+padding: 10px;
+border-radius: 5px;
+cursor: pointer;
+font-weight: bold;
+}
+
+.history-button:hover {
+background-color: #444;
+}
