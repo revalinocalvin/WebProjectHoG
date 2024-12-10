@@ -15,6 +15,7 @@ const Navbar = () => {
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/main">Rewards</Link>
         <Link to="/login">Login</Link>
+        <Link to="/faq">FAQ</Link>
       </div>
       <div className="navbar-icons">
         <img src="/path/to/bell-icon.png" alt="Notifications" className="icon" />

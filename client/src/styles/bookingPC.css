@@ -1,0 +1,75 @@
+/* bookingPC.css */
+.booking-pc-container {
+    max-width: 1200px;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f0f4f8;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+}
+
+.pc-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 0;
+    position: relative;
+}
+
+.entrance {
+    writing-mode:vertical-lr;
+    transform: rotate(180deg);
+    font-weight: bold;
+    font-size: 30px;
+    margin: auto 20px ;
+}
+
+.pc-selection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.pc {
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.pc:hover {
+    transform: scale(1.1);
+    border-color: #0056b3;
+}
+
+.pc img {
+    width: 50px; /* Sesuaikan ukuran ikon PC */
+    height: 50px; /* Sesuaikan ukuran ikon PC */
+}
+
+.tutorial-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tutorial-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.tutorial-button:hover {
+    background-color: #0056b3;
+}
