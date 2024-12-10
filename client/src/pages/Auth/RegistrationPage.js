@@ -1,6 +1,6 @@
 // RegisterPage.js
 import React from 'react';
-import './RegisterPage.css';
+import '../../styles/RegisterPage.css';
 
 const RegisterPage = () => {
     return (
