@@ -1,6 +1,6 @@
 // Navbar.js
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import '../styles/navbar.css'; // Import the CSS file for styling
 
 const Navbar = () => {
@@ -10,9 +10,9 @@ const Navbar = () => {
         <img src="../hog-logo-bg.png" alt="Logo" />
       </div>
       <div className="navbar-links">
-        <a href="../pages/User/DashboardPage.js">Dashboard</a>
-        <a href="#rewards">Rewards</a>
-        <a href="../pages/Auth/LoginPage.js">Login</a>
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/rewards">Rewards</Link>
+        <Link to="/login">Login</Link>
       </div>
       <div className="navbar-icons">
         <img src="/path/to/bell-icon.png" alt="Notifications" className="icon" />
