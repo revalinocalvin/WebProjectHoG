@@ -20,11 +20,11 @@ body {
 }
 
 .header h1, p {
-    text-align: left;
-    margin: 0;
-    margin-right: auto;
-    margin-left: 8%;
-    display: flex;
+  text-align: left;
+  margin: 0;
+  margin-right: auto;
+  margin-left: 8%;
+  display: flex;
 }
 
 .landing-page {
@@ -38,7 +38,7 @@ body {
 
 .content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   padding: 40px;
   background-color: #f2f2f2;
@@ -46,33 +46,102 @@ body {
   margin-top: 0px;
 }
 
-.packages, .specs, .gear {
+.packages {
+  width: 45%;
   background-color: #007bff;
   color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 30%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 2px solid #00aaff;
+  text-align: left;
+  position: relative;
+}
+
+.packages h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 2em;
+  padding: 10px 0;
+  position: relative;
+}
+
+.price-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.specs, .gear {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #00aaff;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.packages ul {
+  padding: 0;
+  list-style: none;
 }
 
 .packages ul li:first-child {
   font-weight: bold;
+  text-align: center;
   background-color: #28a745;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 10px;
   color: white;
-}
-
-.packages ul li, .specs ul li, .gear ul li {
   display: flex;
   justify-content: space-between;
+  border: 2px solid white; /* White outline */
+}
+
+.packages ul li {
+  border: 2px solid #28a745; /* Green outline */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.packages ul li span {
+  display: inline-block;
+  width: 33%;
+}
+
+.specs ul li, .gear ul li {
   border: 1px solid #00aaff;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.specs ul li span, .gear ul li span {
+  display: block;
+}
+
+.packages ul li span:first-child, .specs ul li span:first-child, .gear ul li span:first-child {
+  font-weight: bold;
 }
 
 .steps {
@@ -108,7 +177,7 @@ body {
     align-items: center;
   }
 
-  .packages, .specs, .gear {
+  .packages, .right-column {
     width: 80%;
     margin-bottom: 20px;
   }
