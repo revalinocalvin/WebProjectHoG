@@ -17,7 +17,7 @@ const MainPage = () => {
               <li>
                 <span>Paket Member</span>
                 <span>Total Waktu</span>
-                <span>Price</span>
+                <span>Harga</span>
               </li>
               <li>
                 <span>30 Menit Member</span>
