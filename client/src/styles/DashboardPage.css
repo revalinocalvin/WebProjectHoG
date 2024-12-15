@@ -4,25 +4,25 @@
     justify-content: space-between; /* Memisahkan elemen utama dan profil pengguna */
     padding: 20px;
     text-align: center;
-    background-color: #f8f9fa; /* Warna latar belakang */
+    background-color: #ffffff; /* Warna latar belakang */
 }
 
 .main-content {
     flex: 1; /* Mengambil ruang yang tersedia */
-    margin: 0 210px 0; /* Jarak antara konten utama dan profil pengguna */
+    margin: 70px 100px 0; /* Jarak antara konten utama dan profil pengguna */
+
 }
 
-.mapping-jadwal, .booking-pc {
-    background-color: #ffffff; /* Warna latar belakang */
+.mapping-jadwal, .booking-pc{
+    background-color: #F5F7FA; /* Warna latar belakang */
     border-radius: 10px;
-    padding: 20px;
+    justify-items: center;
+    padding: 20px 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
-    margin-bottom: 20px; /* Jarak antar elemen */
+    margin-bottom: 50px; /* Jarak antar elemen */
 }
 
 .user-profile {
-    width: 400px; /* Lebar tetap untuk user profile */
-    height: 93%;
     background-color: #ffffff; /* Warna latar belakang untuk user profile */
     border-radius: 10px;
     padding: 20px;
