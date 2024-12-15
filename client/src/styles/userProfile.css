@@ -23,11 +23,9 @@
 }
 
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 120px;
     border-radius: 50%;
-    margin-bottom: 10px;
-    border: 2px solid #ccc;
+    margin-bottom: -10px;
 }
 
 .points {
@@ -109,7 +107,7 @@
 }
 
 .next-booking button:hover {
-    background-color: #6DA5EB;
+    background-color: #5286c5;
 }
 
 .history-button {
@@ -125,5 +123,5 @@
 }
 
 .history-button:hover {
-    background-color: #6DA5EB;
+    background-color: #3878c5;
 }

@@ -8,7 +8,6 @@ class TimeConfiguration extends Component {
             const hour = i.toString().padStart(2, '0');
             return `${hour}:30`;
         });
-
         return (
             <div className="booking-time">
                 <h1>Atur Waktu Bermain</h1>
@@ -19,12 +18,10 @@ class TimeConfiguration extends Component {
                     <form>
                         <label>
                             Tanggal Booking:
-
                             <input type="date" name="bookingDate" />
                         </label>
                         <label>
                             Jam Mulai:
-
                             <select name="startTime">
                                 {timeOptions.map(time => (
                                     <option key={time} value={time}>{time}</option>
@@ -33,7 +30,6 @@ class TimeConfiguration extends Component {
                         </label>
                         <label>
                             Jam Selesai:
-
                             <select name="endTime">
                                 {timeOptions.map(time => (
                                     <option key={time} value={time}>{time}</option>
