@@ -1,5 +1,5 @@
 body {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
@@ -35,12 +35,89 @@ body {
   padding: 0 15px;
 }
 
+.web-intro {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.web-intro h2 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.web-intro p {
+  text-align: center;
+}
+
+.game-logos-subheading {
+  text-align: center; 
+  margin: 0;
+  padding: 10px 0;
+}
+
+.game-logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.game-logos img {
+  width: 70px; /* Adjust size as needed */
+  margin: 0 10px;
+}
+
+.steps-icons {
+  display: flex;
+  justify-content: center; /* Center the items */
+  width: 80%;
+  margin: 20px auto; /* Center the container */
+  gap: 20px;
+}
+
+.step-button {
+  background-color: white; /* White background for buttons */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 150px; /* Fixed width for uniformity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  height: auto; /* Set a fixed height for uniformity */
+}
+
+.step-button:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.step-icon {
+  width: 40px; /* Adjust size of icons */
+  height: auto;
+  margin-bottom: 10px; /* Spacing below the icon */
+}
+
+.step-button p {
+  color: black; /* Change text color to black */
+  margin: 0; /* Remove default margin */
+  font-weight: bold; /* Bold text */
+  font-size: 1em; /* Adjust font size */
+}
+
 .content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 40px;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   border-radius: 10px;
   margin-top: 0px;
 }
@@ -56,7 +133,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 2px solid #00aaff;
   text-align: left;
-  position: relative;
 }
 
 .packages h2 {
@@ -97,26 +173,6 @@ body {
   justify-content: space-between;
   text-align: center;
 }
-
-.packages ul li span {
-    display: inline-block;
-  }
-  
-  .packages ul li span:first-child {
-    width: 33%; /* Adjust width for left-aligned text */
-    text-align: left;
-    padding-left: 10px;
-  }
-  
-  .packages ul li span:nth-child(2) {
-    width: 25%; /* Adjust width for center-aligned text */
-    text-align: center;
-  }
-  
-  .packages ul li span:nth-child(3) {
-    width: 25%; /* Adjust width for center-aligned text */
-    text-align: center;
-  }
 
 .price-icon {
   position: absolute;
@@ -167,20 +223,6 @@ body {
   font-weight: bold;
 }
 
-.steps {
-  text-align: center;
-  padding: 20px;
-  background-color: #e0e0e0;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
-.step-icons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
 .location {
   text-align: center;
   padding: 20px;
@@ -195,12 +237,12 @@ body {
 }
 
 @media (max-width: 768px) {
-  .content {
+  .content, .web-intro {
     flex-direction: column;
     align-items: center;
   }
 
-  .packages, .right-column {
+  .packages, .right-column, .web-intro {
     width: 80%;
     margin-bottom: 20px;
   }
