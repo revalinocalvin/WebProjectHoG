@@ -10,9 +10,40 @@ const MainPage = () => {
       </header>
 
       <div className="landing-page">
+        <div className="web-intro">
+          <h2>Ayo Bermain Bersama Kami</h2>
+          <p className="game-logos-heading">Kami memiliki ratusan koleksi game yang siap dimainkan.</p>
+          <div className="game-logos">
+            <img src="/icon-dota.svg" alt="Dota 2" />
+            <img src="/icon-steam.svg" alt="Steam" />
+            <img src="/icon-gta.svg" alt="GTA V" />
+            <img src="/icon-efootball.svg" alt="Football" />
+            <img src="/icon-pb.svg" alt="Point Blank" />
+            <img src="/icon-cs2.svg" alt="cs2" />
+          </div>
+          <h3>4 Langkah Mudah untuk Mulai Bermain</h3>
+          <div className="steps-icons">
+            <div className="step-button">
+              <img src="/icon-hp-people.svg" alt="Buat Akun" className="step-icon" />
+              <p>Buat Akun</p>
+            </div>
+            <div className="step-button">
+              <img src="/icon-hp-pc.svg" alt="Pilih Komputer" className="step-icon" />
+              <p>Pilih Komputer</p>
+            </div>
+            <div className="step-button">
+              <img src="/icon-hp-calendar.svg" alt="Lakukan Pemesanan" className="step-icon" />
+              <p>Lakukan Pemesanan</p>
+            </div>
+            <div className="step-button">
+              <img src="/icon-hp-home.svg" alt="Konfirmasi dan Datang" className="step-icon" />
+              <p>Konfirmasi dan Datang</p>
+            </div>
+          </div>
+        </div>
         <div className="content">
           <div className="packages">
-          <h2>Harga Paket <img src="/tag.png" alt="Price Icon" className="price-icon" /></h2>
+            <h2>Harga Paket <img src="/tag.png" alt="Price Icon" className="price-icon" /></h2>
             <ul>
               <li>
                 <span>Paket Member</span>
@@ -77,20 +108,10 @@ const MainPage = () => {
                 <li><span>ASUS XL2546K 240hz, 360hz</span></li>
                 <img src="/Mouse.png" alt="Mouse Icon" className="mouse-icon"/>
                 <li><span>Logitech G102 Lightsync</span></li>
-                <img src="/HEadset.png" alt="HEadset Icon" className="headset-icon"/>
+                <img src="/HEadset.png" alt="Headset Icon" className="headset-icon"/>
                 <li><span>DBE GM 220</span></li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <div className="steps">
-          <h3>4 LANGKAH MUDAH UNTUK BERMAIN</h3>
-          <div className="step-icons">
-            <div>Buat Akun</div>
-            <div>Pilih Komputer</div>
-            <div>Lakukan Pemesanan</div>
-            <div>Konfirmasi & Datang</div>
           </div>
         </div>
 
