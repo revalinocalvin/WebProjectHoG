@@ -15,11 +15,13 @@ const TutorialPage = () => {
             <p>Pada halaman booking pengguna dapat melihat mapping jadwal dari semua booking online yang tersedia.</p>
             <img src="/tutor4.png" alt="Booking Example" className="tutorial-image" />
             <p>Pemain dapat melakukan booking online dengan cara:</p>
-            <ul>
-                <li>Memilih jadwal (hari + jam bermain).</li>
-                <li>Memilih letak PC yang ingin di booking.</li>
-                <li>Dan memilih paket bermain.</li>
-            </ul>
+            <p className='tutor-booking'>
+            Memilih jadwal (hari + jam bermain).
+            <br></br>
+            Memilih letak PC yang ingin di booking.
+            <br></br>
+            Dan memilih paket bermain.
+            </p>
             <p>Jika sudah, pengguna berhasil melakukan booking online.</p>
         </div>
     </div>

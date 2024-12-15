@@ -15,7 +15,7 @@ const Navbar = ({ isLoggedIn, username }) => {
       </div>
       <div className="navbar-links">
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/main">Rewards</Link>
+        <Link to="/rewards">Rewards</Link>
       </div>
       <div className="navbar-icons">
         {isLoggedIn ? (

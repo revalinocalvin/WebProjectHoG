@@ -22,7 +22,7 @@ const LoginPage = () => {
                 <label>
                 <input type="checkbox" /> Remember me
                 </label>
-                <a href="#" className="forgot-password">Forgot Password?</a>
+                <Link to="/forgetpass">Forgot Password?</Link>
             </div>
             <button type="submit" className="login-button">Login</button>
             </form>

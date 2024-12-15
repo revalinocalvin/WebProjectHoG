@@ -1,0 +1,96 @@
+.coupon-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.points {
+    background-color: orange;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.banner {
+    background-image: url(../../public/bnr-cupon.png);
+    height: 300px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    padding: 40px 0;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.coupon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.coupon-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.coupon-type {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.coupon-image img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.coupon-name {
+    margin-bottom: 10px;
+}
+
+.coupon-price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.redeem-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.redeem-button:hover {
+    background-color: #218838;
+}
