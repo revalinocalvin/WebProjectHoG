@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AppRoutes from './routes';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/Public/MainPage';
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
