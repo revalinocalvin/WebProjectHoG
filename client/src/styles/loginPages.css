@@ -16,12 +16,17 @@ body {
 }
 
 .login-card {
+    display: inline-flexbox;
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
+}
+
+.login-card img{
+    margin-bottom: -20px;
 }
 
 .logo {
@@ -36,6 +41,7 @@ h2 {
 .input-group {
     margin-bottom: 15px;
     text-align: left;
+    width: 92%;
 }
 
 label {

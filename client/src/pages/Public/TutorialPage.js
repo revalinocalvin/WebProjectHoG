@@ -11,9 +11,9 @@ const TutorialPage = () => {
             <p>Untuk dapat melakukan booking secara online, pengguna harus melakukan login terlebih dahulu.</p>
             <img src="/tutor2.png" alt="Tutor Step2" className="tutorial-image" />
             <p>Setelah melakukan login, pengguna dapat pergi ke halaman booking untuk melakukan booking online.</p>
-            <img src="path/to/image2.jpg" alt="Mapping Jadwal" className="tutorial-image" />
+            <img src="/tutor3.png" alt="Mapping Jadwal" className="tutorial-image" />
             <p>Pada halaman booking pengguna dapat melihat mapping jadwal dari semua booking online yang tersedia.</p>
-            <img src="path/to/image3.jpg" alt="Booking Example" className="tutorial-image" />
+            <img src="/tutor4.png" alt="Booking Example" className="tutorial-image" />
             <p>Pemain dapat melakukan booking online dengan cara:</p>
             <ul>
                 <li>Memilih jadwal (hari + jam bermain).</li>
