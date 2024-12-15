@@ -17,6 +17,14 @@ const FAQPage = () => {
         {
         question: "Siapa penemu Bebek",
         answer: "Informasi tentang penemu Bebek belum tersedia."
+        },
+        {
+        question: "Siapa penemu Bebek",
+        answer: "Informasi tentang penemu Bebek belum tersedia."
+        },
+        {
+        question: "Siapa penemu Bebek",
+        answer: "Informasi tentang penemu Bebek belum tersedia."
         }
     ];
 

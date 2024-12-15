@@ -61,8 +61,11 @@ const MainPage = () => {
             <div className="specs">
               <h2>Spesifikasi PC</h2>
               <ul>
+                <img src="/vga.png" alt="VGA" className="vga-img"/>
                 <li><span>Nvidia (RTX 3070, RTX 3070Ti, RTX 4060 Ti, AMD RX 6600)</span></li>
+                <img src="CPU.png" alt="CPU" className="cpu-img"/>
                 <li><span>Processor i5 GEN 12</span></li>
+                <img src="/RAM.png" alt="RAM" className="ram-img"/>
                 <li><span>32GB RAM</span></li>
               </ul>
             </div>
@@ -70,8 +73,11 @@ const MainPage = () => {
             <div className="gear">
               <h2>Gear Equipment</h2>
               <ul>
+                <img src="/Monitor.png" alt="Monitor Icon" className="monitor-icon"/>
                 <li><span>ASUS XL2546K 240hz, 360hz</span></li>
+                <img src="/Mouse.png" alt="Mouse Icon" className="mouse-icon"/>
                 <li><span>Logitech G102 Lightsync</span></li>
+                <img src="/HEadset.png" alt="HEadset Icon" className="headset-icon"/>
                 <li><span>DBE GM 220</span></li>
               </ul>
             </div>
@@ -90,7 +96,7 @@ const MainPage = () => {
 
         <div className="location">
           <h3>LOKASI WARNET HOME OF GAMERS</h3>
-          <img src="path/to/map.png" alt="Map" className="map-image" />
+          <img src="/Map.png" alt="Map" className="map-img"/>
         </div>
       </div>
     </>

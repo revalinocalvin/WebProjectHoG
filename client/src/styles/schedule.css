@@ -10,7 +10,7 @@
 .schedule-table th, .schedule-table td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid #969696;
 }
 
 .schedule-table th {
@@ -24,6 +24,6 @@
 }
 
 .schedule-table .available {
-    background-color: #d4edda; /* Warna untuk sel yang tersedia */
+    background-color: #ffffff; /* Warna untuk sel yang tersedia */
     color: #333;
 }

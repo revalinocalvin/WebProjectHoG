@@ -1,13 +1,13 @@
 // components/UserProfile.js
 import React from 'react';
 import '../styles/userProfile.css'; // Tambahkan CSS untuk styling
-//import profilePic from '../assets/profile-pic.jpg'; // Path to profile picture
+import profilePic from '../asset/photoprofile.png'; // Path to profile picture
 
 const UserProfile = () => {
     return (
         <div className="user-profile">
+            <img src={profilePic} alt="Profile" className="profile-pic"/>
             <div className="profile-header">
-                <img src='/public/logo192.png' alt="Profile" className="profile-pic"/>
                 <h3>Roroaji</h3>
                 <p className="points">POIN: 25</p>
             </div>
@@ -18,7 +18,7 @@ const UserProfile = () => {
             <div className="next-booking">
                 <h4>Booking Berikutnya</h4>
                 <p>Kamis, 28 Oktober</p>
-                <div className="booking-time">
+                <div className="booking-info">
                     <span>19:00</span>
                     <span>PC 5</span>
                     <span>23:30</span>

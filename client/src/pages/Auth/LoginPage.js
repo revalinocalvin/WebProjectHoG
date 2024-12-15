@@ -7,7 +7,7 @@ const LoginPage = () => {
     return (
         <div className="login-container">
         <div className="login-card">
-            <img src="path/to/logo.png" alt="Logo" className="logo" />
+            <img src="/hog-logo-bg.png" alt="HOG-Logo" className="hog-logo" />
             <h2>Log In</h2>
             <form>
             <div className="input-group">

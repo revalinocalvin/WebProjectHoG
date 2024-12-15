@@ -1,18 +1,21 @@
 /* bookingPC.css */
 .booking-pc-container {
     max-width: 1200px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     margin: 20px;
     padding: 20px;
-    background-color: #f0f4f8;
-    border: 1px solid #007bff;
+    background-color: #F5F7FA;
+    border: 3px solid #000000;
     border-radius: 10px;
 }
 
 .pc-layout {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     margin: 20px 0;
     position: relative;
 }
@@ -27,15 +30,14 @@
 
 .pc-selection {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
 }
 
 .pc {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     background-color: #ffffff;
-    border: 1px solid #007bff;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -46,18 +48,19 @@
 
 .pc:hover {
     transform: scale(1.1);
-    border-color: #0056b3;
+    background-color: #e6effd;
 }
 
 .pc img {
-    width: 50px; /* Sesuaikan ukuran ikon PC */
-    height: 50px; /* Sesuaikan ukuran ikon PC */
+    width: 60px; /* Sesuaikan ukuran ikon PC */
+    height: 60px; /* Sesuaikan ukuran ikon PC */
 }
 
 .tutorial-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+    width: 30%;
+    margin-top: 10px;
+    padding: 15px 10px;
+    background-color: #2DCC70;
     color: white;
     border: none;
     border-radius: 5px;
@@ -71,5 +74,5 @@
 }
 
 .tutorial-button:hover {
-    background-color: #0056b3;
+    background-color: #2cba67;
 }

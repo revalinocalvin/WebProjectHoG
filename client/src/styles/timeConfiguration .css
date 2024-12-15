@@ -1,0 +1,90 @@
+.booking-time{
+    display: block;
+    background-color: #F5F7FA; /* Warna latar belakang */
+    border-radius: 10px;
+    justify-items: center;
+    padding: 20px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    margin-bottom: 50px; /* Jarak antar elemen */
+}
+
+.time-configuration {
+    display: flex; 
+    align-items: center;
+    gap:150px;
+    padding: 20px;
+}
+
+.booking-section {
+    width: 280px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.booking-section label{
+    display: inline-block;
+    font-size: 18px;
+    inline-size: 90%;
+    text-align: left;
+    padding: 3px 20px;
+}
+
+.booking-section label input{
+    width: 93%;
+}
+
+.booking-section label select{
+    width: 94%;
+}
+
+.booking-section h2 {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #2DCC70;
+    color: white;
+    border: none;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2ab664;
+}
+
+.computer-info {
+    width: 320px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.computer-info img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: -10px;
+}
+
+.computer-info h2 {
+    margin-bottom: 10px;
+}
+
+.info-spec {
+    margin-bottom: 20px;
+}
+
+.info-spec p {
+    font-size: 16px;
+    align-items: left;
+}
