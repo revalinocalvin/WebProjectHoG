@@ -14,7 +14,7 @@ class TimeConfiguration extends Component {
                 <h4>Silahkan pilih waktu bermain</h4>
                 <div className="time-configuration">
                     <div className="booking-section">
-                        <h2>KOMPUTER {selectedPC}</h2>
+                        <h1>KOMPUTER {selectedPC}</h1>
                     <form>
                         <label>
                             Tanggal Booking:
