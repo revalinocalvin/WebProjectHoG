@@ -62,19 +62,20 @@ const ProfilePage = () => {
                         </form>
                     ) : (
                         <>
-                            <p>{profile.username} <span>Username</span></p>
-                            <p>{profile.name} <span>Nama</span></p>
-                            <p>{profile.email} <span>Email</span></p>
-                            <p>{profile.phone} <span>No. Telp</span></p>
+                            <p><span>Username</span> {profile.username}</p>
+                            <p><span>Nama</span> {profile.name}</p>
+                            <p><span>Email</span> {profile.email}</p>
+                            <p><span>No. Telp</span> {profile.phone}</p>
                         </>
                     )}
                 </div>
                 <div className="profile-image">
-                    <img src="../../" alt="Profile" />
+                    <img src="photoprofile.png" alt="Profile" />
                 </div>
                 <button className="edit-button" onClick={handleEditClick}>
                     {isEditing ? 'Simpan' : 'Edit'}
                 </button>
+                
             </div>
             <div className="history-section">
                 <h2>Riwayat</h2>

@@ -1,13 +1,12 @@
 // components/UserProfile.js
 import React from 'react';
 import '../styles/userProfile.css'; // Tambahkan CSS untuk styling
-import profilePic from '../asset/photoprofile.png'; // Path to profile picture
 import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
     return (
         <div className="user-profile">
-            <Link to="/profile"><img src={profilePic} alt="Profile" className="profile-pic"/></Link>
+            <Link to="/profile"><img src="photoprofile.png" alt="Profile" className="profile-pic"/></Link>
             <div className="profile-header">
                 <h3>Roroaji</h3>
                 <p className="points">POIN: 25</p>
