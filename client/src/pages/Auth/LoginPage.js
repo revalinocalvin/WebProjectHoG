@@ -20,11 +20,12 @@ const LoginPage = () => {
             </div>
             <div className="options">
                 <label>
-                <input type="checkbox" /> Remember me
+                <input type="checkbox"/> Remember me
                 </label>
                 <Link to="/forgetpass">Forgot Password?</Link>
             </div>
             <button type="submit" className="login-button">Login</button>
+            
             </form>
             <p className="register-text">
             Don't have an account? <Link to="/register">Register Now</Link>
