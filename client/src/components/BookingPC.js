@@ -5,7 +5,7 @@ import '../styles/bookingPC.css'; // Tambahkan CSS untuk styling
 const BookingPC = ({ onPCClick }) => {
     return (
         <div className="booking-container">
-            <h4>Silahkan Pilih Computer Dahulu!</h4>
+            <h3>Silahkan Pilih Computer Dahulu!</h3>
             <div className="booking-pc-container">
             <div className="pc-layout">
                 <div className="entrance">MASUK</div>

@@ -1,7 +1,16 @@
+.rewards-page {
+    max-width: 1400px;
+    margin: 100px auto;
+}
+
 .coupon-page {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.header-rewards {
+    width: 120px;
 }
 
 .header {
@@ -12,20 +21,31 @@
 
 .points {
     background-color: orange;
+    background-size: 50px;
     color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
 }
 
 .banner {
     background-image: url(../../public/bnr-cupon.png);
-    height: 300px;
+    background-size: 100%;
+    background-position-y: -50px;
+    height: 350px;
     background-color: #007bff;
     color: white;
     text-align: center;
     border-radius: 20px;
     padding: 40px 0;
     margin-bottom: 20px;
+}
+
+.tag-rewards{
+    margin: 100px auto;
+    margin-left: 50px;
+    margin-right: 800px;
+    font-size: 52px;
 }
 
 .tabs {
@@ -42,6 +62,7 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
 
 .tab.active {
     background-color: #007bff;
