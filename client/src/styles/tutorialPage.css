@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background-color: #f0f4f8;
 }
 
@@ -26,8 +25,8 @@ body {
 }
 
 .tutorial-content p{
-    padding: 15px;
-    text-align: center;
+    padding: 10px;
+    text-align: left;
 }
 
 .tutorial-image {

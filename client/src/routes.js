@@ -6,8 +6,10 @@ import LoginPage from './pages/Auth/LoginPage';
 import RegistrationPage from './pages/Auth/RegistrationPage';
 import DashboardPage from './pages/User/DashboardPage';
 import TutorialPage from './pages/Public/TutorialPage';
+import ForgetPassPage from './pages/Auth/ForgetPassPage';
+import RewardsPage from './pages/User/RewardsPage';
 //import PointsRedeemPage from './pages/User/PointsRedeemPage';
-//import ProfilePage from './pages/User/ProfilePage';
+import ProfilePage from './pages/User/ProfilePage';
 //import EditProfilePage from './pages/User/EditProfilePage';
 //import HistoryPage from './pages/User/HistoryPage';
 //import AnnouncementPage from './pages/User/AnnouncementPage';
@@ -20,9 +22,15 @@ const AppRoutes = () => (
 
       <Route path="/register" element={<RegistrationPage />} />
 
+      <Route path="/forgetpass" element={<ForgetPassPage />} />
+
       <Route path="/tutorial" element={<TutorialPage />} />
 
+      <Route path="/profile" element={<ProfilePage />} />
+
       <Route path="/faq" element={<FAQPage />} />
+
+      <Route path="/rewards" element={<RewardsPage />} />
       
       {/* Protected Routes */}
       <Route path="/dashboard" element={<DashboardPage/>} />
