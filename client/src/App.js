@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import AppRoutes from './routes';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/Public/MainPage';
+import BookingPage from './pages/User/BookingPage';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Navbar isLoggedIn={isLoggedIn} username={username} />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/booking" element={<BookingPage />} />
           <Route path="/*" element={<AppRoutes />} />
         </Routes>
         <Footer />
