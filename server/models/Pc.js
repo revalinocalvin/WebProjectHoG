@@ -1,23 +1,19 @@
+const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 
-const pcSchema = new mongoose.Schema({
-
-  name: {
-    type: String,
-    required: true
-  },
-  pc_sec: {
-    type: String,
-    required: true
-  },
-  is_available: {
-    type: Boolean,
-    required: true
-  },
-  location: {
-    type: String, // durasi dalam jam atau menit
-    required: true
-  }
+const Pcschema = new mongoose.Schema({
+    pcnumber: {
+        type: String,
+        required: true
+    },
+    pcimage: {
+        type: String,
+        required: true
+    },
+    spec: {
+        type: String,
+        required: true
+    }
 });
 
-module.exports = mongoose.model('Pc', pcSchema);
+module.exports = mongoose.model('Pc', Pcschema);

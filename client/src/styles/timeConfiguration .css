@@ -11,13 +11,13 @@
 .time-configuration {
     display: flex; 
     align-items: center;
-    gap:150px;
+    gap:120px;
     padding: 20px;
 }
 
 .booking-section {
     width: 280px;
-    height: auto;
+    height: 340px;
     background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;

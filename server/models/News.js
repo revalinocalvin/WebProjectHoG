@@ -1,22 +1,23 @@
+const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 
-const newsSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  content: {
-    type: Date,
-    required: true
-  },
-  created_at: {
-    type: Date,
-    required: true
-  },
-  update_at: {
-    type: Date,
-    required: true
-  }
+const newsschema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String
+    },
+    date:{
+        type: Date,
+        required: true
+    }
+
 });
 
-module.exports = mongoose.model('News', newsSchema);
+module.exports = mongoose.model('News', newsschema);

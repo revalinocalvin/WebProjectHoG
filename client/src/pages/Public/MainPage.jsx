@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/MainPage.css';
+import Schedule from '../../components/Schedule';
 
 const MainPage = () => {
   return (
@@ -40,6 +41,7 @@ const MainPage = () => {
               <p>Konfirmasi dan Datang</p>
             </div>
           </div>
+          <Schedule />
         </div>
         <div className="content">
           <div className="packages">
