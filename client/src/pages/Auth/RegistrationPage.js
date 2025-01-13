@@ -10,12 +10,8 @@ const RegisterPage = () => {
             <h2>Create an Account</h2>
             <form>
             <div className="input-group">
-                <label htmlFor="first-name">First Name</label>
-                <input type="text" id="first-name" placeholder="Enter your first name" required />
-            </div>
-            <div className="input-group">
-                <label htmlFor="last-name">Last Name</label>
-                <input type="text" id="last-name" placeholder="Enter your last name" required />
+                <label htmlFor="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required />
             </div>
             <div className="input-group">
                 <label htmlFor="email">Email</label>
