@@ -1,3 +1,4 @@
+const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 
 const packageSchema = new mongoose.Schema({
@@ -14,6 +15,10 @@ const packageSchema = new mongoose.Schema({
     },
     duration: {
         type: Number,
+        required: true
+    },
+    points:{
+        type:Number,
         required: true
     }
 });

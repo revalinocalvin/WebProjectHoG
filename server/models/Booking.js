@@ -7,7 +7,8 @@ const bookingSchema = new mongoose.Schema({
         required: true,
     },
     computerId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Pc',
         required: true,
     },
     package: {

@@ -53,4 +53,5 @@ router.get('/all', [protect, authorize('admin')], async (req, res) => {
     res.status(200).json(users);
 });
 
+
 module.exports = router;

@@ -2,9 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
-const userRoutes = require('./routes/user'); // Make sure to create this file
-const bookingRoutes = require('./routes/booking'); // Make sure to create this file
+const cors = require('cors'); // Import cors
+const userRoutes = require('./routes/user');
+const bookingRoutes = require('./routes/booking');
 const packageRoutes = require('./routes/package');
+const newsRoutes = require('./routes/news');
+const pcRoutes = require('./routes/pc');
 
 dotenv.config();
 
@@ -12,6 +15,12 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Middleware
+app.use(cors({ // Configure CORS
+    origin: 'http://localhost:3000', // Ganti dengan URL frontend Anda
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,8 +34,10 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/users', userRoutes);
-app.use('/api/bookings', bookingRoutes); // Authentication middleware is now included in the bookings routes
-app.use('/api/packages', packageRoutes); // Authentication middleware is now included in the packages routes
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/packages', packageRoutes);
+app.use('/api/news', newsRoutes);
+app.use('/api/pc', pcRoutes);
 
 // Start the server
 app.listen(PORT, () => {
