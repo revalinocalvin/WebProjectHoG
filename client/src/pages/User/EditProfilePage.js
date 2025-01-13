@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import '../../styles/editProfilePage.css';
 
-const EditProfile = ({ profile, setProfile }) => {
-    const [localProfile, setLocalProfile] = useState(profile);
+const EditProfile = ({ profile = {}, setProfile }) => {
+    const [localProfile, setLocalProfile] = useState({
+        username: profile.username || '',
+        name: profile.name || '',
+        email: profile.email || '',
+        phone: profile.phone || ''
+    });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;

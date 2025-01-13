@@ -1,28 +1,19 @@
-import React,  { useState } from 'react';
+import React, { useState } from 'react';
 import '../../styles/profilePage.css';
+import { Link } from 'react-router-dom'; // Import Link
 
 const ProfilePage = () => {
-    const [isEditing, setIsEditing] = useState(false);
-    const [profile, setProfile] = useState({
+    const [profile] = useState({
         username: 'Roroaji',
         name: 'Gusti Raden Mas Suryo Rangga',
         email: 'mahasiswakilippgpc123@gmail.com',
         phone: '08121212121'
     });
 
-    const [bookings, setBookings] = useState([
+    const [bookings] = useState([
         { date: '24 Desember 2019', pc: 'PC 4', time: '08.00 - 10.00' },
         { date: '24 Desember 2019', reward: 'Billing', points: '300' }
     ]);
-
-    const handleEditClick = () => {
-        setIsEditing(!isEditing);
-    };
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setProfile({ ...profile, [name]: value });
-    };
 
     return (
         <div className="profile-page">
@@ -33,49 +24,17 @@ const ProfilePage = () => {
             <div className="profile-info">
                 <div className="profile-details">
                     <h2>Profil</h2>
-                    {isEditing ? (
-                        <form>
-                            <input
-                                type="text"
-                                name="username"
-                                value={profile.username}
-                                onChange={handleInputChange}
-                            />
-                            <input
-                                type="text"
-                                name="name"
-                                value={profile.name}
-                                onChange={handleInputChange}
-                            />
-                            <input
-                                type="email"
-                                name="email"
-                                value={profile.email}
-                                onChange={handleInputChange}
-                            />
-                            <input
-                                type="text"
-                                name="phone"
-                                value={profile.phone}
-                                onChange={handleInputChange}
-                            />
-                        </form>
-                    ) : (
-                        <>
-                            <p><span>Username</span> {profile.username}</p>
-                            <p><span>Nama</span> {profile.name}</p>
-                            <p><span>Email</span> {profile.email}</p>
-                            <p><span>No. Telp</span> {profile.phone}</p>
-                        </>
-                    )}
+                    <p>{profile.username}<span>Username</span></p>
+                    <p>{profile.name}<span>Nama</span></p>
+                    <p>{profile.email}<span>Email</span></p>
+                    <p>{profile.phone}<span>No. Telp</span></p>
                 </div>
                 <div className="profile-image">
                     <img src="photoprofile.png" alt="Profile" />
                 </div>
-                <button className="edit-button" onClick={handleEditClick}>
-                    {isEditing ? 'Simpan' : 'Edit'}
-                </button>
-                
+                <Link to="/editprofile" className="edit-button">
+                    <img src="/public/editIcon.png" alt="editProfile"/>
+                </Link>
             </div>
             <div className="history-section">
                 <h2>Riwayat</h2>
