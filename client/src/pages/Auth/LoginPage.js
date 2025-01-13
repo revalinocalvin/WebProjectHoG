@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'; // Import useAuth
 import '../../styles/loginPages.css';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const { login } = useAuth(); // Ambil fungsi untuk mengatur data auth dari context
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,10 +24,32 @@ const LoginPage = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log('Login successful:', data);
-                localStorage.setItem('token', data.token);
-                setMessage('Login successful!');
-                window.location.href = '/dashboard';
+                const token = data.token;
+                localStorage.setItem('token', token);
+
+                // Fetch user profile
+                const profileResponse = await fetch('http://localhost:8080/api/users/profile', {
+                    method: 'GET',
+                    headers: {
+                        'Content-type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                });
+
+                if (profileResponse.ok) {
+                    const profileData = await profileResponse.json();
+                    const username = profileData.username;
+                    
+                    // Save username using context or local storage
+                    login(token, username);
+                    
+                    console.log('Profile data:', profileData);
+                    setMessage('Login successful!');
+                    window.location.href = '/dashboard';
+                } else {
+                    console.error('Failed to fetch profile data');
+                    setMessage('Failed to fetch profile data');
+                }
             } else {
                 const errorData = await response.json();
                 console.error('Login failed:', errorData);

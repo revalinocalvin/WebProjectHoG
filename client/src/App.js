@@ -3,27 +3,26 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AppRoutes from './routes';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import MainPage from './pages/Public/MainPage';
 import BookingPage from './pages/User/BookingPage';
 import './App.css';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const username = "Rangga";
-  
   return (
     <div className="App">
-      <Router>
-        <Navbar isLoggedIn={isLoggedIn} username={username} />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/booking" element={<BookingPage />} />
-          <Route path="/*" element={<AppRoutes />} />
-        </Routes>
-        <Footer />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/booking" element={<BookingPage />} />
+            <Route path="/*" element={<AppRoutes />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
-    
   );
 }
 

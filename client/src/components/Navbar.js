@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; // Import useAuth
 import '../styles/navbar.css';
 
-const Navbar = ({ isLoggedIn, username }) => {
+const Navbar = () => {
+  const { token, logout, username } = useAuth(); // Ambil token dan fungsi logout dari context
+  const isLoggedIn = !!token; // Jika token ada, anggap user sudah login
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -23,6 +27,7 @@ const Navbar = ({ isLoggedIn, username }) => {
             <img src='/Notification.png' alt="Notifications" className="icon" />
             <img src="/photoprofile.png" alt="User" className="icon" />
             <button className="user-button">{username}</button>
+            <button onClick={logout} className="user-button">Logout</button>
           </>
         ) : (
           <Link to="/login" className="user-button">Login</Link>
