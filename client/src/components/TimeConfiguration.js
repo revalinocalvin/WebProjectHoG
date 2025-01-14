@@ -27,8 +27,8 @@ class TimeConfiguration extends Component {
         this.setState({ showPayment: true, totalPrice });
     };
 
+    // Inside TimeConfiguration component
     handlePayment = () => {
-        // Simulate payment success
         this.setState({ paymentSuccess: true });
         const { bookingDate, startTime, endTime } = this.state;
         this.props.onBookingConfirmed({
@@ -48,7 +48,7 @@ class TimeConfiguration extends Component {
         const { showPayment, bookingDate, startTime, endTime, totalPrice, paymentSuccess } = this.state;
         const timeOptions = Array.from({ length: 24 }, (_, i) => {
             const hour = i.toString().padStart(2, '0');
-            return `${hour}:30`;
+            return `${hour}:00`;
         });
 
         return (
