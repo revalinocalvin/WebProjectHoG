@@ -97,6 +97,7 @@ body {
   justify-content: center; /* Center items vertically */
   align-items: center; /* Center items horizontally */
   height: auto; /* Set a fixed height for uniformity */
+  flex-wrap: wrap;
 }
 
 .step-button:hover {
@@ -241,12 +242,12 @@ body {
 }
 
 @media (max-width: 768px) {
-  .content, .web-intro {
+  .content, .web-intro, .steps-icons, .location {
     flex-direction: column;
     align-items: center;
   }
 
-  .packages, .right-column, .web-intro {
+  .packages, .right-column, .web-intro, {
     width: 80%;
     margin-bottom: 20px;
   }
