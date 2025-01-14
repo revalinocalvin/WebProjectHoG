@@ -20,6 +20,14 @@ const bookingSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
+    startTime: {
+        type: Date, // Anda bisa menggunakan tipe Date untuk menyimpan waktu
+        required: true,
+    },
+    endTime: {
+        type: Date, // Anda bisa menggunakan tipe Date untuk menyimpan waktu
+        required: true,
+    },
     isPaid: {
         type: Boolean,
         default: false,
@@ -28,4 +36,3 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 module.exports = Booking;
-

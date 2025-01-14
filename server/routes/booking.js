@@ -24,12 +24,12 @@ router.post('/', [protect, validateBooking, validateResults], async (req, res) =
     }
     
     // Check if the computer is already booked on the same date
-    const existingBooking = await Booking.findOne({ computerId, date });
+    const existingBooking = await Booking.findOne({ computerId, date , startTime, endTime });
     if (existingBooking) {
-        return res.status(400).send('Computer is already booked on this date');
+        return res.status(400).send('Computer is already booked on this time');
     }
 
-    const newBooking = new Booking({ user: req.user.id, computerId, package, date });
+    const newBooking = new Booking({ user: req.user.id, computerId, package, date, startTime, endTime });
     await newBooking.save();
 
     // Update user bookings
