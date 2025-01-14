@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/timeConfiguration .css';
+import '../styles/timeConfiguration.css';
 
 class TimeConfiguration extends Component {
     constructor(props) {
@@ -27,16 +27,54 @@ class TimeConfiguration extends Component {
         this.setState({ showPayment: true, totalPrice });
     };
 
-    handlePayment = () => {
+    handlePayment = async () => {
         // Simulate payment success
         this.setState({ paymentSuccess: true });
         const { bookingDate, startTime, endTime } = this.state;
-        this.props.onBookingConfirmed({
-            date: bookingDate,
-            start: parseInt(startTime.split(':')[0], 10),
-            end: parseInt(endTime.split(':')[0], 10),
-            pc: this.props.selectedPC,
+        const startDateTime = new Date(`${bookingDate}T${startTime}:00`);
+        const endDateTime = new Date(`${bookingDate}T${endTime}:00`);
+
+        // Check if the Date objects are valid
+        if (isNaN(startDateTime.getTime()) || isNaN(endDateTime.getTime())) {
+            console.error("Invalid date/time format");
+            return; // Handle the error as needed
+        }
+
+        this.setState({
+            startDateTime, // You can store the Date objects in the state if needed
+            endDateTime,
         });
+
+        // Prepare booking details
+        const bookingDetails = {
+            //username: localStorage.getItem('username'), // Ambil username dari local storage
+            computerId: this.props.selectedPC, // Ambil computerId dari props
+            package: '1', // Isi package dengan "1"
+            date: bookingDate,
+            startTime: startDateTime,
+            endTime: endDateTime,
+        };
+        console.log('Booking Details:', bookingDetails);
+
+        try {
+            const response = await fetch('http://localhost:8080/api/bookings/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Jika menggunakan token
+                },
+                body: JSON.stringify(bookingDetails),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const result = await response.json();
+            this.props.onBookingConfirmed(result); // Mengirimkan data booking yang berhasil
+        } catch (error) {
+            console.error('Error booking:', error);
+        }
     };
 
     handleChange = (event) => {

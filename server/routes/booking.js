@@ -9,38 +9,59 @@ const User = require('../models/User');
 
 // Booking Komputer
 router.post('/', [protect, validateBooking, validateResults], async (req, res) => {
-    const { computerId, packageId, date } = req.body;
-
-    // Check if the computer exists
-    const computer = await Pc.findById(computerId);
-    if (!computer) {
-        return res.status(400).send('Invalid computer ID');
-    }
-
-    // Check if the package exists
-    const package = await Package.findById(packageId);
-    if (!package) {
-        return res.status(400).send('Invalid package ID');
-    }
+    const { computerId, package, date, startTime, endTime } = req.body;
     
-    // Check if the computer is already booked on the same date
-    const existingBooking = await Booking.findOne({ computerId, date , startTime, endTime });
-    if (existingBooking) {
-        return res.status(400).send('Computer is already booked on this time');
-    }
+    // // Check if the computer exists
+    // const computer = await Pc.findById(computerId);
+    // if (!computer) {
+    //     return res.status(400).send('Invalid computer ID');
+    // }
 
-    const newBooking = new Booking({ user: req.user.id, computerId, package, date, startTime, endTime });
+    // // Check if the package exists
+    // const packageData = await Package.findById(package);
+    // if (!packageData) {
+    //     return res.status(400).send('Invalid package ID');
+    // }
+    
+    // // Check if the computer is already booked on the same date and time
+    // const existingBooking = await Booking.findOne({
+    //     computerId,
+    //     date,
+    //     $or: [
+    //         { startTime: { $lt: endTime, $gt: startTime } }, // Overlap if startTime is between existing booking
+    //         { endTime: { $gt: startTime, $lt: endTime } },   // Overlap if endTime is between existing booking
+    //         { startTime: { $lte: startTime }, endTime: { $gte: endTime } } // Exact overlap
+    //     ]
+    // });
+
+    // if (existingBooking) {
+    //     return res.status(400).send('Computer is already booked at this time');
+    // }
+
+    const newBooking = new bookingDetails({
+        user: req.user.id,
+        computerId,
+        //package: packageData._id, // Ensure we save the package ID
+        package,
+        date,
+        startTime,
+        endTime
+    });
+    
     await newBooking.save();
 
     // Update user bookings
     const user = await User.findById(req.user.id);
     user.bookings.push(newBooking._id);
-    // Update user points
-    user.points += package.points;
+    
+    // // Update user points
+    // user.points += packageData.points; // Use points from the package
+    
     await user.save();
 
     res.status(201).send('Booking created and points updated');
 });
+
 
 
 // Update Status Pembayaran

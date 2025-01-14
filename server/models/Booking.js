@@ -6,14 +6,19 @@ const bookingSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    computerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Pc',
-        required: true,
-    },
+    // computerId: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Pc',
+    //     required: true,
+    // },
+    computerId: { type: Number, required: true },
+    // package: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Package',
+    //     required: true,
+    // },
     package: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Package',
+        type: String,
         required: true,
     },
     date: {
