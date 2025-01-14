@@ -13,7 +13,7 @@ const MainPage = () => {
       <div className="landing-page">
         <div className="web-intro">
           <h2>Ayo Bermain Bersama Kami</h2>
-          <p className="game-logos-heading">Kami memiliki ratusan koleksi game yang siap dimainkan.</p>
+          <h4 className="game-logos-heading">Kami memiliki ratusan koleksi game yang siap dimainkan.</h4>
           <div className="game-logos">
             <img src="/icon-dota.svg" alt="Dota 2" />
             <img src="/icon-steam.svg" alt="Steam" />

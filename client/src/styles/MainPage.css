@@ -48,6 +48,10 @@ body {
   font-size: 1.8em;
 }
 
+.web-intro h4 {
+  font-weight: normal;
+}
+
 .web-intro p {
   text-align: center;
 }
