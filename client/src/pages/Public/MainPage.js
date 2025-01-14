@@ -6,8 +6,10 @@ const MainPage = () => {
   return (
     <>
       <header className="header">
-        <h1>LAKI LAKI TIDAK BERCERITA</h1>
-        <p>IDE RANGGA MEMANG TIDAK PERNAH GAGAL</p>
+        <div className='title'>
+          <h1>LAKI LAKI TIDAK BERCERITA</h1>
+          <a>IDE RANGGA MEMANG TIDAK PERNAH GAGAL</a>
+        </div>
       </header>
 
       <div className="landing-page">

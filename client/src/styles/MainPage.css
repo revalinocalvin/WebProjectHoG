@@ -19,12 +19,16 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.header h1, p {
+.header h1, a {
+  text-align: left;
+  margin: 0;
+}
+
+.title {
   text-align: left;
   margin: 0;
   margin-right: auto;
   margin-left: 8%;
-  display: flex;
 }
 
 .landing-page {
@@ -247,7 +251,26 @@ body {
     align-items: center;
   }
 
-  .packages, .right-column, .web-intro, {
+  .header {
+    height: 50vw; /* Set height to vw for smaller screens */
+    width: 100%;
+    font-size: 2.5vw; /* Adjust font size for better readability on smaller screens */
+  }
+
+  .title {
+    margin: 0;
+    margin-right: auto;
+    margin-left: 5vw;
+    text-align: left;
+    margin-bottom: 10vw;
+    margin-top: auto;
+  }
+
+
+
+  
+
+  .packages, .right-column, .web-intro {
     width: 80%;
     margin-bottom: 20px;
   }
