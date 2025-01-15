@@ -12,29 +12,33 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage(''); // Reset message
+        const currentHost = window.location.hostname; // Get the current IP or hostname
+        const port = 8080; // Specify the port you want to use
+        const apiUrl = `http://${currentHost}:${port}`; // Base API URL
 
-        try {
-            const response = await fetch('http://localhost:8080/api/users/login', {
-                method: 'POST',
+    try {
+        // Login request
+        const response = await fetch(`${apiUrl}/api/users/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            const token = data.token;
+            localStorage.setItem('token', token);
+
+            // Fetch user profile
+            const profileResponse = await fetch(`${apiUrl}/api/users/profile`, {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify({ username, password }),
             });
-
-            if (response.ok) {
-                const data = await response.json();
-                const token = data.token;
-                localStorage.setItem('token', token);
-
-                // Fetch user profile
-                const profileResponse = await fetch('http://localhost:8080/api/users/profile', {
-                    method: 'GET',
-                    headers: {
-                        'Content-type': 'application/json',
-                        'Authorization': `Bearer ${token}`,
-                    },
-                });
 
                 if (profileResponse.ok) {
                     const profileData = await profileResponse.json();

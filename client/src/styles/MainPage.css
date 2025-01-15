@@ -266,12 +266,11 @@ body {
     margin-top: auto;
   }
 
-
-
-  
-
   .packages, .right-column, .web-intro {
-    width: 80%;
+    width: 90vw%;
+    margin: 0;
     margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }

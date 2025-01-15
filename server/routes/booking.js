@@ -23,22 +23,22 @@ router.post('/', [protect, validateBooking, validateResults], async (req, res) =
     //     return res.status(400).send('Invalid package ID');
     // }
     
-    // // Check if the computer is already booked on the same date and time
-    // const existingBooking = await Booking.findOne({
-    //     computerId,
-    //     date,
-    //     $or: [
-    //         { startTime: { $lt: endTime, $gt: startTime } }, // Overlap if startTime is between existing booking
-    //         { endTime: { $gt: startTime, $lt: endTime } },   // Overlap if endTime is between existing booking
-    //         { startTime: { $lte: startTime }, endTime: { $gte: endTime } } // Exact overlap
-    //     ]
-    // });
+    // Check if the computer is already booked on the same date and time
+    const existingBooking = await Booking.findOne({
+        computerId,
+        date,
+        $or: [
+            { startTime: { $lt: endTime, $gt: startTime } }, // Overlap if startTime is between existing booking
+            { endTime: { $gt: startTime, $lt: endTime } },   // Overlap if endTime is between existing booking
+            { startTime: { $lte: startTime }, endTime: { $gte: endTime } } // Exact overlap
+        ]
+    });
 
-    // if (existingBooking) {
-    //     return res.status(400).send('Computer is already booked at this time');
-    // }
+    if (existingBooking) {
+        return res.status(400).send('Computer is already booked at this time');
+    }
 
-    const newBooking = new bookingDetails({
+    const newBooking = new Booking({
         user: req.user.id,
         computerId,
         //package: packageData._id, // Ensure we save the package ID
@@ -59,7 +59,8 @@ router.post('/', [protect, validateBooking, validateResults], async (req, res) =
     
     await user.save();
 
-    res.status(201).send('Booking created and points updated');
+    //res.status(201).send('Booking created and points updated');
+    res.status(201).json({ message: 'Booking created and points updated' });
 });
 
 
