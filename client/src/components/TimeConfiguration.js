@@ -12,6 +12,7 @@ class TimeConfiguration extends Component {
             endTime: '',
             totalPrice: 0,
             paymentSuccess: false,
+            bookingId: null,
         };
     }
 
@@ -77,7 +78,11 @@ class TimeConfiguration extends Component {
             }
     
             const result = await response.json();
+            console.log('Booking Result:', result); // Log the entire result
             this.props.onBookingConfirmed(result); // Send the successful booking data
+            this.setState({ bookingId: result.bookingId }, () => {
+                console.log('Updated booking ID:', this.state.bookingId);
+            }); // Store the booking ID
         } catch (error) {
             console.error('Error booking:', error);
             // Optionally, set an error state to display to the user
@@ -86,9 +91,42 @@ class TimeConfiguration extends Component {
     
 
     handlePayment = async () => {
-        // Simulate payment success
-        this.setState({ paymentSuccess: true });
+        const bookingId = this.state.bookingId; // Get the booking ID from state
+        console.log('Booking ID for payment:', bookingId); // Log the booking ID
+
+        if (!bookingId) {
+            console.error('Booking ID is undefined. Cannot process payment.');
+            return; // Prevent further execution if bookingId is not set
+        } // Assuming you pass the booking ID as a prop after booking
+        const currentHost = window.location.hostname; // Get the current IP or hostname
+        const port = 8080; // Specify the port you want to use
+        const apiUrl = `http://${currentHost}:${port}`; // Base API URL
+    
+        const endpoint = `/api/bookings/${bookingId}/pay`; // Specific endpoint for payment
+    
+        try {
+            const response = await fetch(`${apiUrl}${endpoint}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Use token if applicable
+                }
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json(); // Get the error message from the server
+                throw new Error(errorData.error || 'Network response was not ok');
+            }
+    
+            const result = await response.text(); // You can handle the response as needed
+            console.log(result); // Log the success message
+            this.setState({ paymentSuccess: true }); // Update state to indicate payment success
+        } catch (error) {
+            console.error('Error processing payment:', error);
+            // Optionally, set an error state to display to the user
+        }
     };
+    
 
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });

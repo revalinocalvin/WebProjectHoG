@@ -60,7 +60,10 @@ router.post('/', [protect, validateBooking, validateResults], async (req, res) =
     await user.save();
 
     //res.status(201).send('Booking created and points updated');
-    res.status(201).json({ message: 'Booking created and points updated' });
+    res.status(201).json({ 
+        message: 'Booking created and points updated', 
+        bookingId: newBooking._id // Include the booking ID in the response
+    });
 });
 
 
