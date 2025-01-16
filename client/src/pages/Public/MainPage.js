@@ -92,7 +92,7 @@ const MainPage = () => {
             </ul>
           </div>
 
-          <div className="right-column">
+          {/* <div className="right-column">
             <div className="specs">
               <h2>Spesifikasi PC</h2>
               <ul>
@@ -116,7 +116,7 @@ const MainPage = () => {
                 <li><span>DBE GM 220</span></li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="location">

@@ -1,55 +1,82 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/schedule.css';
 
-const Schedule = ({ selectedDate, newBooking }) => {
+const Schedule = () => {
     const [bookings, setBookings] = useState([]);
+    const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+    const currentHost = window.location.hostname; // Get the current IP or hostname
+    const port = 8080; // Specify the port you want to use
+    const apiUrl = `http://${currentHost}:${port}`; // Base API URL
 
     useEffect(() => {
-        // Mock booking data for testing
-        const mockBookings = [
-            { pc: 'PC 1', start: 1, end: 3, name: 'Alice', color: '#ff5733' },
-            { pc: 'PC 2', start: 2, end: 5, name: 'Charlie', color: '#33c3ff' },
-            { pc: 'PC 3', start: 8, end: 10, name: 'David', color: '#ff33a8' },
-            { pc: 'PC 3', start: 10, end: 12, name: 'Eve', color: '#ffcc33' },
-        ];
+        const fetchBookings = async () => {
+            try {
+                const response = await fetch(`${apiUrl}/api/bookings/all`); // Adjust the URL if needed
+                if (!response.ok) {
+                    throw new Error('Failed to fetch bookings');
+                }
+                const data = await response.json();
+                setBookings(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
-        setBookings(mockBookings);
+        fetchBookings();
     }, []);
 
-    useEffect(() => {
-        if (newBooking) {
-            setBookings(prevBookings => [...prevBookings, newBooking]);
-        }
-    }, [newBooking]);
+    // Function to convert computerId to PC name
+    const getPcName = (computerId) => {
+        const pcMapping = {
+            1: 'PC 1',
+            2: 'PC 2',
+            3: 'PC 3',
+            4: 'PC 4',
+            5: 'PC 5',
+            6: 'PC 6',
+            7: 'PC 7',
+            8: 'PC 8',
+            9: 'PC 9',
+            // Add more mappings as needed
+        };
+        return pcMapping[computerId] || 'Unknown PC';
+    };
 
     const renderCells = (pc) => {
         const cells = [];
         
-        for (let hour = 1; hour <= 24; hour++) {
-            const booking = bookings.find(b => b.pc === pc && hour >= b.start && hour < b.end);
-            
+        for (let hour = 0; hour < 24; hour++) {
+            const startHour = hour;
+            const endHour = hour + 1;
+            const booking = bookings.find(b => 
+                getPcName(b.computerId) === pc &&
+                new Date(b.date).toISOString().split('T')[0] === currentDate && // Match current date
+                new Date(b.startTime).getHours() <= startHour &&
+                new Date(b.endTime).getHours() > startHour &&
+                b.isPaid // Check if booking is paid
+            );
+    
             if (booking) {
-                // Fill the cell with the booking name and color
                 cells.push(
-                    <td key={hour} style={{ backgroundColor: booking.color }}>
-                        {booking.name}
+                    <td key={hour} style={{ backgroundColor: '#ffcc00' }}> {/* Set a color for booked slots */}
+                        {booking.user.username} {/* Display the username */}
                     </td>
                 );
             } else {
-                // Render an empty cell for available hours
-                cells.push(<td key={hour} className="available"></td>);
+                cells.push(<td key={hour} className="available"></td>); // Available cell
             }
         }
         
         return cells;
     };
+    
 
     return (
         <table className="schedule-table">
             <thead>
                 <tr>
                     <th>PC</th>
-                    {[...Array(24)].map((_, i) => <th key={i}>{i + 1}</th>)}
+                    {[...Array(24)].map((_, i) => <th key={i}>{i}</th>)}
                 </tr>
             </thead>
             <tbody>

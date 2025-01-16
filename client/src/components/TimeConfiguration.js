@@ -121,6 +121,7 @@ class TimeConfiguration extends Component {
             const result = await response.text(); // You can handle the response as needed
             console.log(result); // Log the success message
             this.setState({ paymentSuccess: true }); // Update state to indicate payment success
+            window.location.reload();
         } catch (error) {
             console.error('Error processing payment:', error);
             // Optionally, set an error state to display to the user

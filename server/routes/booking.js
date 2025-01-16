@@ -66,8 +66,6 @@ router.post('/', [protect, validateBooking, validateResults], async (req, res) =
     });
 });
 
-
-
 // Update Status Pembayaran
 router.put('/:id/pay', protect, async (req, res) => {
     const booking = await Booking.findById(req.params.id);
@@ -76,6 +74,28 @@ router.put('/:id/pay', protect, async (req, res) => {
     await booking.save();
     res.status(200).send('Payment status updated');            
 });
+
+// Endpoint untuk Mengambil Semua Booking (Tanpa Autentikasi)
+router.get('/all', async (req, res) => {
+    try {
+        // Fetch all bookings from the database and populate user field
+        console.log('fetching bookings....');
+        const bookings = await Booking.find()
+            .populate('user', 'username') // Populate with username
+            .exec();
+
+        if (bookings.length === 0) {
+            return res.status(404).json({ message: 'No bookings found.' });
+        }
+
+        // Return the bookings data
+        res.status(200).json(bookings);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 
 // Endpoint untuk Admin Melihat Riwayat Booking Pengguna Lain
 router.get('/user/:userId', [protect, authorize('admin')], async (req, res) => {
