@@ -18,12 +18,17 @@
     font-weight: bold;
 }
 
-.schedule-table .booked {
-    background-color: #ffcccb; /* Warna untuk sel yang dipesan */
-    color: #333;
+.booking-cell {
+    color: white; /* Change text color for better contrast */
+    border-radius: 4px; /* Rounded corners for the boxes */
+    position: relative; /* To center text */
+    height: 100%; /* Ensure full height */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
 }
 
-.schedule-table .available {
-    background-color: #ffffff; /* Warna untuk sel yang tersedia */
+.available {
+    background-color: #ffffff; /* Color for available cells */
     color: #333;
 }
