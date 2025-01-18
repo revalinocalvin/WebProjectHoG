@@ -27,7 +27,7 @@ class TimeConfiguration extends Component {
         
         // Calculate duration in hours and minutes
         const durationInHours = endHour - startHour + (endMinute - startMinute) / 60;
-        const pricePerHour = 50000; // Example price per hour
+        const pricePerHour = 5000; // Example price per hour
         const totalPrice = durationInHours * pricePerHour;
     
         this.setState({ showPayment: true, totalPrice });
@@ -138,7 +138,7 @@ class TimeConfiguration extends Component {
         const { showPayment, bookingDate, startTime, endTime, totalPrice, paymentSuccess } = this.state;
         const timeOptions = Array.from({ length: 24 }, (_, i) => {
             const hour = i.toString().padStart(2, '0');
-            return `${hour}:30`;
+            return `${hour}:00`;
         });
 
         return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/MainPage.css';
 import Schedule from '../../components/Schedule';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
   return (
@@ -26,14 +27,18 @@ const MainPage = () => {
           </div>
           <h3>4 Langkah Mudah untuk Mulai Bermain</h3>
           <div className="steps-icons">
-            <div className="step-button">
-              <img src="/icon-hp-people.svg" alt="Buat Akun" className="step-icon" />
-              <p>Buat Akun</p>
-            </div>
-            <div className="step-button">
-              <img src="/icon-hp-pc.svg" alt="Pilih Komputer" className="step-icon" />
-              <p>Pilih Komputer</p>
-            </div>
+            <Link to="/register">
+              <div className="step-button">
+                <img src="/icon-hp-people.svg" alt="Buat Akun" className="step-icon" />
+                <p>Buat Akun</p>
+              </div>
+            </Link>
+            <Link to="/dashboard">
+              <div className="step-button">
+                <img src="/icon-hp-pc.svg" alt="Pilih Komputer" className="step-icon" />
+                <p>Pilih Komputer</p>
+              </div>
+            </Link>
             <div className="step-button">
               <img src="/icon-hp-calendar.svg" alt="Lakukan Pemesanan" className="step-icon" />
               <p>Lakukan Pemesanan</p>

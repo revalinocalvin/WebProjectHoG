@@ -9,9 +9,11 @@
 }
 
 .time-configuration {
+    max-width: 1200px;
+    min-width: 400px;
     display: flex; 
     align-items: center;
-    gap:120px;
+    gap:40px;
     padding: 20px;
 }
 

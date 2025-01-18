@@ -1,6 +1,7 @@
 /* schedule.css */
 .schedule-table {
     width: 100%;
+    max-width: 1200px;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 0.9em;

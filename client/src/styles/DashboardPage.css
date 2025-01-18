@@ -8,6 +8,8 @@
 }
 
 .main-content {
+    max-width: 1200px;
+    min-width: 400px;
     flex: 3; /* Mengambil ruang yang tersedia */
     margin: 70px 100px 0; /* Jarak antara konten utama dan profil pengguna */
 
@@ -38,7 +40,7 @@
 .date-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     padding: 10px;
     margin: 0 5px;
     border: 1px solid #ccc;

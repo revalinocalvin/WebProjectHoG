@@ -24,16 +24,16 @@ const ProfilePage = () => {
             <div className="profile-info">
                 <div className="profile-details">
                     <h2>Profil</h2>
-                    <p>{profile.username}<span>Username</span></p>
-                    <p>{profile.name}<span>Nama</span></p>
-                    <p>{profile.email}<span>Email</span></p>
-                    <p>{profile.phone}<span>No. Telp</span></p>
+                    <p>{profile.username}<span>: Username</span></p>
+                    <p>{profile.name}<span>: Nama</span></p>
+                    <p>{profile.email}<span>: Email</span></p>
+                    <p>{profile.phone}<span>: No. Telp</span></p>
                 </div>
                 <div className="profile-image">
                     <img src="photoprofile.png" alt="Profile" />
                 </div>
                 <Link to="/editprofile" className="edit-button">
-                    <img src="/public/editIcon.png" alt="editProfile"/>
+                    <img src="editIcon.png" alt="editProfile"/>
                 </Link>
             </div>
             <div className="history-section">
