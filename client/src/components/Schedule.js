@@ -1,44 +1,82 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/schedule.css';
 
-const Schedule = ({ selectedDate, newBooking }) => {
+const Schedule = () => {
     const [bookings, setBookings] = useState([]);
+    const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+    const currentHost = window.location.hostname; // Get the current IP or hostname
+    const port = 8080; // Specify the port you want to use
+    const apiUrl = `http://${currentHost}:${port}`; // Base API URL
 
     useEffect(() => {
-        if (selectedDate) {
-            const formattedDate = selectedDate.toISOString().split('T')[0];
-            fetch(`/api/bookings?date=${formattedDate}`)
-                .then(response => response.json())
-                .then(data => setBookings(data))
-                .catch(error => console.error('Error fetching bookings:', error));
-        }
-    }, [selectedDate]);
+        const fetchBookings = async () => {
+            try {
+                const response = await fetch(`${apiUrl}/api/bookings/all`); // Adjust the URL if needed
+                if (!response.ok) {
+                    throw new Error('Failed to fetch bookings');
+                }
+                const data = await response.json();
+                setBookings(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
-    useEffect(() => {
-        if (newBooking) {
-            setBookings(prevBookings => [...prevBookings, newBooking]);
-        }
-    }, [newBooking]);
+        fetchBookings();
+    }, []);
+
+    // Function to convert computerId to PC name
+    const getPcName = (computerId) => {
+        const pcMapping = {
+            1: 'PC 1',
+            2: 'PC 2',
+            3: 'PC 3',
+            4: 'PC 4',
+            5: 'PC 5',
+            6: 'PC 6',
+            7: 'PC 7',
+            8: 'PC 8',
+            9: 'PC 9',
+            // Add more mappings as needed
+        };
+        return pcMapping[computerId] || 'Unknown PC';
+    };
 
     const renderCells = (pc) => {
         const cells = [];
-        for (let hour = 1; hour <= 24; hour++) {
-            const booking = bookings.find(booking => booking.pc === pc && hour >= booking.start && hour < booking.end);
-            cells.push(
-                <td key={hour} className={booking ? 'booked' : 'available'}>
-                    {booking ? 'Booked' : ''}
-                </td>
+        
+        for (let hour = 0; hour < 24; hour++) {
+            const startHour = hour;
+            const endHour = hour + 1;
+            const booking = bookings.find(b => 
+                getPcName(b.computerId) === pc &&
+                new Date(b.date).toISOString().split('T')[0] === currentDate && // Match current date
+                new Date(b.startTime).getHours() <= startHour &&
+                new Date(b.endTime).getHours() > startHour &&
+                b.isPaid // Check if booking is paid
             );
+    
+            if (booking) {
+                cells.push(
+                    <td key={hour} style={{ backgroundColor: '#ffcc00' }}> {/* Set a color for booked slots */}
+                        {booking.user.username} {/* Display the username */}
+                    </td>
+                );
+            } else {
+                cells.push(<td key={hour} className="available"></td>); // Available cell
+            }
         }
+        
         return cells;
     };
+    
 
     return (
         <table className="schedule-table">
             <thead>
                 <tr>
                     <th>PC</th>
-                    {[...Array(24)].map((_, i) => <th key={i}>{i + 1}</th>)}
+                    {[...Array(24)].map((_, i) => <th key={i}>{i}</th>)}
                 </tr>
             </thead>
             <tbody>

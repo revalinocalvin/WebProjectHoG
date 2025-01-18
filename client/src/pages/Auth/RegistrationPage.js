@@ -17,13 +17,17 @@ const RegisterPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const currentHost = window.location.hostname; // Get the current IP or hostname
+        const port = 8080; // Specify the port you want to use
+        const apiUrl = `http://${currentHost}:${port}`; // Base API URL
+
         if (formData.password !== formData.confirmPassword) {
             alert("Passwords do not match");
             return;
         }
 
         try {
-            const response = await fetch('http://localhost:8080/api/users/register', {
+            const response = await fetch(`${apiUrl}/api/users/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

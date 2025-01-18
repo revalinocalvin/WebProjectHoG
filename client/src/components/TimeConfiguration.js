@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/timeConfiguration .css';
+import '../styles/timeConfiguration.css';
 
 class TimeConfiguration extends Component {
     constructor(props) {
@@ -12,32 +12,122 @@ class TimeConfiguration extends Component {
             endTime: '',
             totalPrice: 0,
             paymentSuccess: false,
+            bookingId: null,
         };
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => { // Make the function async
         event.preventDefault();
-        const { startTime, endTime } = this.state;
-        const startHour = parseInt(startTime.split(':')[0], 10);
-        const endHour = parseInt(endTime.split(':')[0], 10);
-        const duration = endHour - startHour;
-        const pricePerHour = 50000; // Example price per hour
-        const totalPrice = duration * pricePerHour;
-
-        this.setState({ showPayment: true, totalPrice });
-    };
-
-    // Inside TimeConfiguration component
-    handlePayment = () => {
-        this.setState({ paymentSuccess: true });
         const { bookingDate, startTime, endTime } = this.state;
-        this.props.onBookingConfirmed({
-            date: bookingDate,
-            start: parseInt(startTime.split(':')[0], 10),
-            end: parseInt(endTime.split(':')[0], 10),
-            pc: this.props.selectedPC,
+    
+        const startHour = parseInt(startTime.split(':')[0], 10);
+        const startMinute = parseInt(startTime.split(':')[1], 10);
+        const endHour = parseInt(endTime.split(':')[0], 10);
+        const endMinute = parseInt(endTime.split(':')[1], 10);
+        
+        // Calculate duration in hours and minutes
+        const durationInHours = endHour - startHour + (endMinute - startMinute) / 60;
+        const pricePerHour = 50000; // Example price per hour
+        const totalPrice = durationInHours * pricePerHour;
+    
+        this.setState({ showPayment: true, totalPrice });
+    
+        const startDateTime = new Date(`${bookingDate}T${startTime}:00`);
+        const endDateTime = new Date(`${bookingDate}T${endTime}:00`);
+    
+        // Check if the Date objects are valid
+        if (isNaN(startDateTime.getTime()) || isNaN(endDateTime.getTime())) {
+            console.error("Invalid date/time format");
+            return; // Handle the error as needed
+        }
+    
+        this.setState({
+            startDateTime, // You can store the Date objects in the state if needed
+            endDateTime,
         });
+    
+        // Prepare booking details
+        const bookingDetails = {
+            computerId: this.props.selectedPC, // Get computerId from props
+            package: '1', // Use package "1"
+            date: bookingDate,
+            startTime: startDateTime.toISOString(), // Convert to ISO string
+            endTime: endDateTime.toISOString(), // Convert to ISO string
+        };
+        console.log('Booking Details:', bookingDetails);
+
+        const currentHost = window.location.hostname; // Get the current IP or hostname
+        const port = 8080; // Specify the port you want to use
+        const apiUrl = `http://${currentHost}:${port}`; // Base API URL
+
+        const endpoint = '/api/bookings/'; // Specific endpoint
+    
+        try {
+            const response = await fetch(`${apiUrl}${endpoint}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Use token if applicable
+                },
+                body: JSON.stringify(bookingDetails),
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json(); // Get the error message from the server
+                throw new Error(errorData.error || 'Network response was not ok');
+            }
+    
+            const result = await response.json();
+            console.log('Booking Result:', result); // Log the entire result
+            this.props.onBookingConfirmed(result); // Send the successful booking data
+            this.setState({ bookingId: result.bookingId }, () => {
+                console.log('Updated booking ID:', this.state.bookingId);
+            }); // Store the booking ID
+        } catch (error) {
+            console.error('Error booking:', error);
+            // Optionally, set an error state to display to the user
+        }
     };
+    
+
+    handlePayment = async () => {
+        const bookingId = this.state.bookingId; // Get the booking ID from state
+        console.log('Booking ID for payment:', bookingId); // Log the booking ID
+
+        if (!bookingId) {
+            console.error('Booking ID is undefined. Cannot process payment.');
+            return; // Prevent further execution if bookingId is not set
+        } // Assuming you pass the booking ID as a prop after booking
+        const currentHost = window.location.hostname; // Get the current IP or hostname
+        const port = 8080; // Specify the port you want to use
+        const apiUrl = `http://${currentHost}:${port}`; // Base API URL
+    
+        const endpoint = `/api/bookings/${bookingId}/pay`; // Specific endpoint for payment
+    
+        try {
+            const response = await fetch(`${apiUrl}${endpoint}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Use token if applicable
+                }
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json(); // Get the error message from the server
+                throw new Error(errorData.error || 'Network response was not ok');
+            }
+    
+            const result = await response.text(); // You can handle the response as needed
+            console.log(result); // Log the success message
+            this.setState({ paymentSuccess: true }); // Update state to indicate payment success
+            window.location.reload();
+        } catch (error) {
+            console.error('Error processing payment:', error);
+            // Optionally, set an error state to display to the user
+        }
+    };
+    
 
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
@@ -48,7 +138,7 @@ class TimeConfiguration extends Component {
         const { showPayment, bookingDate, startTime, endTime, totalPrice, paymentSuccess } = this.state;
         const timeOptions = Array.from({ length: 24 }, (_, i) => {
             const hour = i.toString().padStart(2, '0');
-            return `${hour}:00`;
+            return `${hour}:30`;
         });
 
         return (

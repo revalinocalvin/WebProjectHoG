@@ -6,18 +6,31 @@ const bookingSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    computerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Pc',
-        required: true,
-    },
+    // computerId: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Pc',
+    //     required: true,
+    // },
+    computerId: { type: Number, required: true },
+    // package: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Package',
+    //     required: true,
+    // },
     package: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Package',
+        type: String,
         required: true,
     },
     date: {
         type: Date,
+        required: true,
+    },
+    startTime: {
+        type: Date, // Anda bisa menggunakan tipe Date untuk menyimpan waktu
+        required: true,
+    },
+    endTime: {
+        type: Date, // Anda bisa menggunakan tipe Date untuk menyimpan waktu
         required: true,
     },
     isPaid: {
@@ -28,4 +41,3 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 module.exports = Booking;
-

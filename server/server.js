@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors({ // Configure CORS
-    origin: 'http://localhost:3000', // Ganti dengan URL frontend Anda
+    origin: '*', // Ganti dengan URL frontend Anda
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
