@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/schedule.css';
+import './schedule.css';
 
-const Schedule = () => {
+const Schedule = ({ onBookingSelect }) => {
     const [bookings, setBookings] = useState([]);
     const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
     const currentHost = window.location.hostname; // Get the current IP or hostname
@@ -17,8 +17,6 @@ const Schedule = () => {
                 }
                 const data = await response.json();
                 setBookings(data);
-                console.log(currentDate);
-
             } catch (error) {
                 console.error(error);
             }
@@ -57,22 +55,27 @@ const Schedule = () => {
                 new Date(b.endTime).getHours() > startHour &&
                 b.isPaid // Check if booking is paid
             );
-    
+
+            const handleCellClick = () => {
+                if (booking) {
+                    onBookingSelect(booking); // Call the prop function with the booking
+                }
+            };
+
             if (booking) {
                 cells.push(
-                    <td key={hour} style={{ backgroundColor: '#ffcc00' }}> {/* Set a color for booked slots */}
+                    <td key={hour} style={{ backgroundColor: '#ffcc00', cursor: 'pointer' }} onClick={handleCellClick}> {/* Set a color for booked slots */}
                         {booking.user.username} {/* Display the username */}
                     </td>
                 );
             } else {
-                cells.push(<td key={hour} className="available"></td>); // Available cell
+                cells.push(<td key={hour} className="available" onClick={handleCellClick}></td>); // Available cell
             }
         }
         
         return cells;
     };
     
-
     return (
         <table className="schedule-table">
             <thead>

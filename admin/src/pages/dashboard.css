@@ -1,0 +1,49 @@
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.schedule-section {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.booking-list-section {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+}
+
+.schedule table,
+.booking-list-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule th,
+.booking-list-section th,
+.schedule td,
+.booking-list-section td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.add-booking-button {
+    margin-top: 20px;
+}
+
+.notifications {
+    margin-top: 20px;
+}
+
+.notification-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 5px;
+}
