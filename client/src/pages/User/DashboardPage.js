@@ -1,5 +1,5 @@
-import React, { useState, useEffect  }from 'react';
-import '../../styles/DashboardPage.css'; // Tambahkan CSS untuk styling
+import React, { useState, useEffect } from 'react';
+import '../../styles/DashboardPage.css';
 import Schedule from '../../components/Schedule';
 import BookingPC from '../../components/BookingPC';
 import UserProfile from '../../components/UserProfile';
@@ -8,23 +8,29 @@ import TimeConfiguration from '../../components/TimeConfiguration';
 const DashboardPage = () => {
     const [selectedPC, setSelectedPC] = useState(null);
     const [dates, setDates] = useState([]);
+    const [selectedDate, setSelectedDate] = useState(null);
 
     useEffect(() => {
         const current = new Date();
-        const startOfWeek = current.getDate() - current.getDay();
         const weekDates = Array.from({ length: 7 }, (_, i) => {
-            const date = new Date(current.setDate(startOfWeek + i));
+            const date = new Date(current);
+            date.setDate(current.getDate() + i);
             return {
                 day: date.toLocaleDateString('id-ID', { weekday: 'short' }),
-                date: date.getDate(),
+                date: date,
                 isToday: date.toDateString() === new Date().toDateString()
             };
         });
         setDates(weekDates);
+        setSelectedDate(weekDates[0].date); // Set initial selected date
     }, []);
 
     const handlePCClick = (pcNumber) => {
         setSelectedPC(pcNumber);
+    };
+
+    const handleDateClick = (date) => {
+        setSelectedDate(date);
     };
 
     return (
@@ -32,13 +38,17 @@ const DashboardPage = () => {
             <div className="main-content">
                 <div className="mapping-jadwal">
                     <h1>Mapping Jadwal</h1>
-                    <Schedule />
+                    <Schedule selectedDate={selectedDate} />
                 </div>
                 <div className="date-display">
                     {dates.map((d, index) => (
-                        <div key={index} className={`date-item ${d.isToday ? 'today' : ''}`}>
+                        <div 
+                            key={index} 
+                            className={`date-item ${d.isToday ? 'today' : ''} ${selectedDate?.getTime() === d.date.getTime() ? 'selected' : ''}`}
+                            onClick={() => handleDateClick(d.date)}
+                        >
                             <span>{d.day}</span>
-                            <span>{d.date}</span>
+                            <span>{d.date.getDate()}</span>
                         </div>
                     ))}
                 </div>
@@ -47,7 +57,12 @@ const DashboardPage = () => {
                     <BookingPC onPCClick={handlePCClick} />
                 </div>
                 {selectedPC && (
-                    <TimeConfiguration selectedPC={selectedPC} />
+                    <TimeConfiguration selectedPC={selectedPC}
+                        onBookingConfirmed={(bookingDetails) => {
+                        console.log('Booking confirmed:', bookingDetails);
+                        // Handle booking confirmation logic here
+                        }}
+                    />
                 )}
             </div>
             <div className="user-profil">

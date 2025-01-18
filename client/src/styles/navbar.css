@@ -50,16 +50,33 @@
 }
 
 .icon {
-  height: 30px;
-  margin: 0 10px;
+  height: 40px;
+  margin: auto;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .user-button {
   background-color: #32cd32;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 7px 10px;
   border-radius: 5px;
+  font-size: 1em;
+  margin: auto;
+  margin-right: 10px;
   cursor: pointer;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    width: 100vw;
+    margin-bottom: 20px;
+  }
 }

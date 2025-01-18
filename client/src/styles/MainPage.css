@@ -15,16 +15,21 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  padding: 0px;
   font-size: 1.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.header h1, p {
+.header h1, a {
+  text-align: left;
+  margin: 0;
+}
+
+.title {
   text-align: left;
   margin: 0;
   margin-right: auto;
   margin-left: 8%;
-  display: flex;
 }
 
 .landing-page {
@@ -46,6 +51,10 @@ body {
 .web-intro h2 {
   margin: 0;
   font-size: 1.8em;
+}
+
+.web-intro h4 {
+  font-weight: normal;
 }
 
 .web-intro p {
@@ -93,6 +102,7 @@ body {
   justify-content: center; /* Center items vertically */
   align-items: center; /* Center items horizontally */
   height: auto; /* Set a fixed height for uniformity */
+  flex-wrap: wrap;
 }
 
 .step-button:hover {
@@ -237,13 +247,31 @@ body {
 }
 
 @media (max-width: 768px) {
-  .content, .web-intro {
+  .content, .web-intro, .steps-icons, .location {
     flex-direction: column;
     align-items: center;
   }
 
+  .header {
+    height: 50vw; /* Set height to vw for smaller screens */
+    width: 100%;
+    font-size: 2.5vw; /* Adjust font size for better readability on smaller screens */
+  }
+
+  .title {
+    margin: 0;
+    margin-right: auto;
+    margin-left: 5vw;
+    text-align: left;
+    margin-bottom: 10vw;
+    margin-top: auto;
+  }
+
   .packages, .right-column, .web-intro {
-    width: 80%;
+    width: 90vw%;
+    margin: 0;
     margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }

@@ -6,14 +6,16 @@ const MainPage = () => {
   return (
     <>
       <header className="header">
-        <h1>LAKI LAKI TIDAK BERCERITA</h1>
-        <p>IDE RANGGA MEMANG TIDAK PERNAH GAGAL</p>
+        <div className='title'>
+          <h1>LAKI LAKI TIDAK BERCERITA</h1>
+          <a>IDE RANGGA MEMANG TIDAK PERNAH GAGAL</a>
+        </div>
       </header>
 
       <div className="landing-page">
         <div className="web-intro">
           <h2>Ayo Bermain Bersama Kami</h2>
-          <p className="game-logos-heading">Kami memiliki ratusan koleksi game yang siap dimainkan.</p>
+          <h4 className="game-logos-heading">Kami memiliki ratusan koleksi game yang siap dimainkan.</h4>
           <div className="game-logos">
             <img src="/icon-dota.svg" alt="Dota 2" />
             <img src="/icon-steam.svg" alt="Steam" />
@@ -90,7 +92,7 @@ const MainPage = () => {
             </ul>
           </div>
 
-          <div className="right-column">
+          {/* <div className="right-column">
             <div className="specs">
               <h2>Spesifikasi PC</h2>
               <ul>
@@ -114,7 +116,7 @@ const MainPage = () => {
                 <li><span>DBE GM 220</span></li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="location">

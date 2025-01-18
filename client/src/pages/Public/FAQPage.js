@@ -7,24 +7,24 @@ const FAQPage = () => {
 
     const faqs = [
         {
-        question: "Bagaimana cara booking",
-        answer: "Tidak ada penemu bebek seperti kita menemukan suatu benda atau menciptakan sesuatu. Bebek adalah jenis burung air yang sudah ada sejak jutaan tahun lalu. Para ilmuwan telah menemukan fosil bebek purba yang menunjukkan bahwa hewan ini telah berevolusi selama berabad-abad. Jadi, bukan seorang individu yang menemukan bebek, melainkan proses evolusi alamiah yang panjang."
+        question: "Apakah saya bisa memilih spesifikasi komputer tertentu?",
+        answer: "Tentu! Kami menyediakan informasi lengkap mengenai spesifikasi komputer di setiap cabang. Anda dapat memilih komputer dengan spesifikasi yang sesuai dengan kebutuhan Anda, seperti untuk gaming, streaming, atau pekerjaan."
         },
         {
-        question: "Siapa penemu Gacoan",
-        answer: "Informasi tentang penemu Gacoan belum tersedia."
+        question: "Apakah saya perlu datang tepat waktu sesuai jadwal booking?",
+        answer: "Ya, kami menyarankan Anda datang tepat waktu untuk memastikan reservasi Anda tidak hangus. Toleransi keterlambatan adalah 15 menit. Jika terlambat lebih dari itu, reservasi dapat dialihkan ke pelanggan lain."
         },
         {
-        question: "Siapa penemu Bebek",
-        answer: "Informasi tentang penemu Bebek belum tersedia."
+        question: "Apakah saya bisa membatalkan atau mengubah jadwal booking?",
+        answer: "Pembatalan atau perubahan jadwal dapat dilakukan maksimal 3 jam sebelum waktu booking melalui akun Anda di website. Untuk pembatalan mendadak, biaya booking tidak dapat dikembalikan."
         },
         {
-        question: "Siapa penemu Bebek",
-        answer: "Informasi tentang penemu Bebek belum tersedia."
+        question: "Apakah ada diskon untuk booking dalam waktu lama?",
+        answer: "Ya, kami menawarkan diskon khusus untuk reservasi lebih dari 5 jam. Diskon akan otomatis diterapkan saat checkout."
         },
         {
-        question: "Siapa penemu Bebek",
-        answer: "Informasi tentang penemu Bebek belum tersedia."
+        question: "Apakah ada metode pembayaran yang tersedia?",
+        answer: "Kami menerima berbagai metode pembayaran, seperti transfer bank, dompet digital, dan kartu kredit/debit."
         }
     ];
 
