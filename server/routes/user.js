@@ -12,6 +12,7 @@ const validateRegister = [
     body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
 ];
 
+
 // Registrasi User
 router.post('/register', validateRegister, async (req, res) => {
     const errors = validationResult(req);
@@ -25,6 +26,7 @@ router.post('/register', validateRegister, async (req, res) => {
     await newUser.save();
     res.status(201).send('User registered');
 });
+
 
 // Login User
 router.post('/login', async (req, res) =>{
@@ -47,10 +49,20 @@ router.get('/profile', protect, async (req, res) => {
     res.status(200).json(user);
 });
 
+
 // Admin gets all users
 router.get('/all', [protect, authorize('admin')], async (req, res) => {
     const users = await User.find({});
     res.status(200).json(users);
+});
+
+router.delete('/:id', [protect, authorize('admin')], async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        return res.status(404).send('User not found');
+    }
+    await user.remove();
+    res.status(200).send('User removed');
 });
 
 
