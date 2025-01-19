@@ -35,54 +35,56 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-container">
-            <div className="schedule-section">
-                <Schedule onBookingSelect={handleBookingSelect} />
-                <div className="booking-details">
-                    {selectedBooking ? (
-                        <div>
-                            <h3>Booking Details</h3>
-                            <p>PC: {selectedBooking.computerId}</p>
-                            <p>Username: {selectedBooking.user?.username}</p>
-                            <p>Phone: </p>
-                            <p>Booking Id: {selectedBooking._id}</p>
-                            <p>Date: {new Date(selectedBooking.date).toLocaleDateString()}</p>
-                        </div>
-                    ) : (
-                        <p>Select a booking to see details</p>
-                    )}
+            <div className="main-content">
+                <div className="schedule-section">
+                    <Schedule onBookingSelect={handleBookingSelect} />
+                    <div className="booking-details">
+                        {selectedBooking ? (
+                            <div>
+                                <h3>Booking Details</h3>
+                                <p>PC: {selectedBooking.computerId}</p>
+                                <p>Username: {selectedBooking.user?.username}</p>
+                                <p>Phone: </p>
+                                <p>Booking Id: {selectedBooking._id}</p>
+                                <p>Date: {new Date(selectedBooking.date).toLocaleDateString()}</p>
+                            </div>
+                        ) : (
+                            <p>Select a booking to see details</p>
+                        )}
+                    </div>
                 </div>
-            </div>
-            <div className="booking-list-section">
-                <h2>Booking List</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>PC</th>
-                            <th>Username</th>
-                            <th>Phone</th>
-                            <th>Booking Id</th>
-                            <th>Date</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {bookings.map((booking) => (
-                            <tr key={booking._id}>
-                                <td>{booking.computerId}</td>
-                                <td>{booking.user?.username}</td>
-                                <td></td>
-                                <td>{booking._id}</td>
-                                <td>{new Date(booking.date).toLocaleDateString()}</td>
-                                <td>
-                                    <button onClick={() => handleBookingSelect(booking)}>View</button>
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </td>
+                <div className="booking-list-section">
+                    <h2>Booking List</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PC</th>
+                                <th>Username</th>
+                                <th>Phone</th>
+                                <th>Booking Id</th>
+                                <th>Date</th>
+                                <th>Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <button className="add-booking-button">Add New Booking</button>
+                        </thead>
+                        <tbody>
+                            {bookings.map((booking) => (
+                                <tr key={booking._id}>
+                                    <td>{booking.computerId}</td>
+                                    <td>{booking.user?.username}</td>
+                                    <td></td>
+                                    <td>{booking._id}</td>
+                                    <td>{new Date(booking.date).toLocaleDateString()}</td>
+                                    <td>
+                                        <button onClick={() => handleBookingSelect(booking)}>View</button>
+                                        <button>Edit</button>
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <button className="add-booking-button">Add New Booking</button>
+                </div>
             </div>
             <div className="sidebar">
                 <div className="date-time">

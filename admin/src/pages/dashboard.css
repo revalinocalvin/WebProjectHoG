@@ -1,49 +1,146 @@
+/* Dashboard Container */
 .dashboard-container {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.schedule-section {
-    flex: 2;
-    margin-right: 20px;
-}
-
-.booking-list-section {
+    flex-direction: row; /* Ensure elements are side by side */
+    gap: 20px;
+    height: 100vh; /* Make the container fill the viewport height */
+    background-color: #f9f9f9;
+  }
+  
+  /* Main Content Section (Schedule and Booking List) */
+  .main-content {
     flex: 3;
-}
-
-.sidebar {
+    display: flex;
+    flex-direction: column; /* Booking List below the Schedule Section */
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+  
+  /* Schedule and Booking Details */
+  .schedule-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .schedule-section .schedule-table {
+    flex: 2;
+  }
+  
+  .schedule-section .booking-details {
     flex: 1;
-    border-left: 1px solid #ccc;
-    padding-left: 20px;
-}
-
-.schedule table,
-.booking-list-section table {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-details h3 {
+    margin-bottom: 15px;
+  }
+  
+  /* Booking List */
+  .booking-list-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-list-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  .booking-list-section table {
     width: 100%;
     border-collapse: collapse;
-}
-
-.schedule th,
-.booking-list-section th,
-.schedule td,
-.booking-list-section td {
-    border: 1px solid #ccc;
+  }
+  
+  .booking-list-section th,
+  .booking-list-section td {
     padding: 10px;
+    border: 1px solid #ddd;
     text-align: left;
-}
-
-.add-booking-button {
-    margin-top: 20px;
-}
-
-.notifications {
-    margin-top: 20px;
-}
-
-.notification-item {
-    background-color: #f9f9f9;
+  }
+  
+  .booking-list-section th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+  .booking-list-section .add-booking-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .booking-list-section .add-booking-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%; /* Make sidebar fill the height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky; /* Keep sidebar fixed during scroll */
+    top: 0;
+  }
+  
+  .sidebar .date-time {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar .date-time h2 {
+    font-size: 2.5rem;
+  }
+  
+  .sidebar .navigation button {
+    width: 100%;
     padding: 10px;
-    margin-bottom: 5px;
-}
+    margin: 5px 0;
+    border: none;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .sidebar .navigation button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .sidebar .notifications {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .notification-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .notification-item.green {
+    border-left: 5px solid #28a745;
+    background-color: #e6f9eb;
+  }
+  
+  .notification-item.red {
+    border-left: 5px solid #dc3545;
+    background-color: #f9e6e6;
+  }
+  
