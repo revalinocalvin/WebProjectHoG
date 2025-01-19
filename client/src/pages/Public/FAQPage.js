@@ -33,18 +33,20 @@ const FAQPage = () => {
     };
 
     return (
-        <div className="faq-container">
-        <h1>FAQ's</h1>
-        {faqs.map((faq, index) => (
-            <div key={index} className="faq-item">
-            <div className="faq-question" onClick={() => toggleFAQ(index)}>
-                <span>{activeIndex === index ? '-' : '+'}</span> {faq.question}
+        <div className="faq-body"> 
+            <div className="faq-container">
+            <h1>FAQ's</h1>
+            {faqs.map((faq, index) => (
+                <div key={index} className="faq-item">
+                <div className="faq-question" onClick={() => toggleFAQ(index)}>
+                    <span>{activeIndex === index ? '-' : '+'}</span> {faq.question}
+                </div>
+                {activeIndex === index && (
+                    <div className="faq-answer">{faq.answer}</div>
+                )}
+                </div>
+            ))}
             </div>
-            {activeIndex === index && (
-                <div className="faq-answer">{faq.answer}</div>
-            )}
-            </div>
-        ))}
         </div>
     );
 };

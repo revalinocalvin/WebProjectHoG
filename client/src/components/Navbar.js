@@ -26,7 +26,9 @@ const Navbar = () => {
           <>
             <img src='/Notification.png' alt="Notifications" className="icon" />
             <img src="/photoprofile.png" alt="User" className="icon" />
-            <button className="user-button">{username}</button>
+            <button className="user-button">
+              <Link to="/profile" >{username}</Link>
+              </button>
             <button onClick={logout} className="user-button">Logout</button>
           </>
         ) : (
