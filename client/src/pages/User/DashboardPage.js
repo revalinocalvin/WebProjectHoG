@@ -9,6 +9,7 @@ const DashboardPage = () => {
     const [selectedPC, setSelectedPC] = useState(null);
     const [dates, setDates] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
+    const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
         const current = new Date();
@@ -33,6 +34,10 @@ const DashboardPage = () => {
         setSelectedDate(date);
     };
 
+    const handleBookingConfirmed = (bookingDetails) => {
+        setBookings(prevBookings => [...prevBookings, bookingDetails]);
+    };
+
     return (
         <div className="dashboard-container">
             <div className="main-content">
@@ -42,14 +47,14 @@ const DashboardPage = () => {
                 </div>
                 <div className="date-display">
                     {dates.map((d, index) => (
-                        <div 
+                        <button 
                             key={index} 
                             className={`date-item ${d.isToday ? 'today' : ''} ${selectedDate?.getTime() === d.date.getTime() ? 'selected' : ''}`}
                             onClick={() => handleDateClick(d.date)}
-                        >
+                            >
                             <span>{d.day}</span>
                             <span>{d.date.getDate()}</span>
-                        </div>
+                        </button>
                     ))}
                 </div>
                 <div className="booking-pc">
@@ -66,7 +71,7 @@ const DashboardPage = () => {
                 )}
             </div>
             <div className="user-profil">
-                <UserProfile />
+                    <UserProfile />
             </div>
         </div>
     );

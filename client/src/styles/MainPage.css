@@ -101,7 +101,7 @@ body {
   flex-direction: column; /* Stack items vertically */
   justify-content: center; /* Center items vertically */
   align-items: center; /* Center items horizontally */
-  height: auto; /* Set a fixed height for uniformity */
+  height: 90px; /* Set a fixed height for uniformity */
   flex-wrap: wrap;
 }
 
@@ -268,7 +268,7 @@ body {
   }
 
   .packages, .right-column, .web-intro {
-    width: 90vw%;
+    width: 90%;
     margin: 0;
     margin-bottom: 20px;
     margin-left: 0px;

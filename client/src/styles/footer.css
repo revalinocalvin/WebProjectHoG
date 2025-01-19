@@ -20,8 +20,8 @@
   }
   
   .footer-logo img {
-    width: 150px;
-    max-height: 150px;
+    width: 100px;
+    max-height: 100px;
     margin-right: auto;
     margin-left: 10px;
   }
@@ -30,7 +30,7 @@
     text-align: left;
     max-width: 300px;
     margin-right: auto;
-    margin-left: 50px;
+    margin-left: 15px;
   }
   
   .footer-links {
@@ -60,9 +60,22 @@
   .footer-column a:hover {
     text-decoration: underline;
   }
-  
   .footer-bottom {
     margin-top: 10px;
     color: #ffffff;
   }
   
+
+  @media (max-width: 768px) {
+    .footer-contact {
+      font-size: 12px;
+    }
+
+    .footer-links {
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      font-size: 12px;
+    }
+  }

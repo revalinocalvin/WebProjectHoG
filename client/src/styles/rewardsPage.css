@@ -1,5 +1,5 @@
 .rewards-page {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 100px auto;
 }
 
@@ -32,6 +32,7 @@
     background-image: url(../../public/bnr-cupon.png);
     background-size: 100%;
     background-position-y: -50px;
+    background-repeat: no-repeat;
     height: 350px;
     background-color: #007bff;
     color: white;
@@ -49,12 +50,16 @@
 }
 
 .tabs {
+    margin-top: -35px;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
 .tab {
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
     background-color: white;
     border: 1px solid #ccc;
     padding: 10px 20px;
@@ -114,4 +119,37 @@
 
 .redeem-button:hover {
     background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    .header-rewards {
+        margin: -20px 0 -5px 20px;
+    }
+
+    .banner {
+        width: 90%;
+        margin: 0 auto;
+        height: 70px;
+        background-repeat: no-repeat;
+        background-size: 125%;
+        background-position-x: -85px;
+    }
+
+    .tag-rewards{
+        margin: 10px auto;
+        margin-left: 20px;
+        margin-right: 250px;
+        font-size: 20px;
+    }
+
+    .tabs {
+        margin: -15px auto 20px;
+        padding: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        font-size: 12px;
+    }
 }

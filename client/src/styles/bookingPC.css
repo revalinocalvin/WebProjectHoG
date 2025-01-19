@@ -58,9 +58,10 @@
 
 .tutorial-button {
     width: 30%;
-    margin-top: 10px;
+    justify-items: center;
+    margin: 10px auto 10px;
     padding: 15px 10px;
-    background-color: #2DCC70;
+    background-color: #2484FC;
     color: white;
     border: none;
     border-radius: 5px;
@@ -74,5 +75,30 @@
 }
 
 .tutorial-button:hover {
-    background-color: #2cba67;
+    background-color: #53a0ff;
+}
+
+@media (max-width: 768px) {
+    .booking-pc-container {
+        width: 300px;
+        flex-wrap: wrap;
+    }
+
+    .pc-selection {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .entrance {
+        margin-left: -25px;
+        font-size: 24px;
+    }
+
+    .pc {
+        width: 50px;
+    }
+    .tutorial-button {
+        width: 200px;
+    }
 }
