@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'; // Import Link
 const ProfilePage = () => {
     const [profile] = useState({
         username: 'Roroaji',
-        name: 'Gusti Raden Mas Suryo Rangga',
-        email: 'mahasiswakilippgpc123@gmail.com',
+        name: 'Gusti Raden Rangga',
+        email: 'mahasiswa@gmail.com',
         phone: '08121212121'
     });
 

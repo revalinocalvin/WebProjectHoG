@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/editProfilePage.css';
+import { Link } from 'react-router-dom';
 
 const EditProfile = ({ profile = {}, setProfile }) => {
     const [localProfile, setLocalProfile] = useState({
@@ -70,6 +71,9 @@ const EditProfile = ({ profile = {}, setProfile }) => {
                 <h2>Setting</h2>
                 <button className="change-password-button">Change Password</button>
                 <button className="logout-button">Log Out</button>
+                <Link to="/profile">
+                    <button className="back-profile-button">Back</button>
+                </Link>
             </div>
         </div>
     );

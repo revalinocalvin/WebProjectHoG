@@ -1,7 +1,6 @@
 /* bookingPC.css */
 .booking-pc-container {
     max-width: 1200px;
-    min-width: 400px;
     width: 1000px;
     display: flex;
     flex-direction: column;
@@ -76,4 +75,29 @@
 
 .tutorial-button:hover {
     background-color: #2cba67;
+}
+
+@media (max-width: 768px) {
+    .booking-pc-container {
+        width: 300px;
+        flex-wrap: wrap;
+    }
+
+    .pc-selection {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .entrance {
+        margin-left: -25px;
+        font-size: 24px;
+    }
+
+    .pc {
+        width: 50px;
+    }
+    .tutorial-button {
+        width: 200px;
+    }
 }

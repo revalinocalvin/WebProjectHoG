@@ -113,8 +113,8 @@
 .history-button {
     background-color: #2062B5;
     color: #fff;
-    width: 97%;
-    padding: 15px;
+    width: 100%;
+    padding: 15px 90px;
     border-radius: 7px;
     cursor: pointer;
     font-weight: bold;

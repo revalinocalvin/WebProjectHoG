@@ -70,7 +70,10 @@ return (
                 <button>Konfirmasi</button>
                 <button>Batalkan</button>
             </div>
-            <button className="history-button" >Riwayat Booking</button>
+            <Link to="/profile">
+                <button className="history-button" >Riwayat Booking</button>
+            </Link>
+            
             
         </div>
     );

@@ -71,7 +71,7 @@ const DashboardPage = () => {
                 )}
             </div>
             <div className="user-profil">
-                <UserProfile />
+                    <UserProfile />
             </div>
         </div>
     );
