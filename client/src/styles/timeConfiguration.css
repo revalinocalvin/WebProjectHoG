@@ -29,10 +29,10 @@
 }
 
 .booking-section {
-    width: 280px;
-    height: 340px;
+    width: 340px;
+    height: 350px;
     background-color: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 0 20px 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -65,7 +65,7 @@ button {
     color: white;
     border: none;
     margin: 10px 0;
-    margin-right: 60%;
+    margin-right: 65%;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -76,8 +76,8 @@ button:hover {
 }
 
 .computer-info {
-    width: 320px;
-    padding-top: 20px;
+    width: 400px;
+    padding: 25px 0 10px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -110,6 +110,7 @@ button:hover {
     background-repeat: no-repeat;
     background-size: 2000px;
     background-position-x: 350px;
+    background-position-y: 110px;
     background-color: #ffffff; /* Warna latar belakang */
     border-radius: 10px;
     padding: 20px 30px;
@@ -119,6 +120,7 @@ button:hover {
 }
 
 .payment-details {
+    width: 300px;
     background-color: #ffffff; /* Warna latar belakang */
     border-radius: 10px;
     padding: 20px 30px;
@@ -157,16 +159,26 @@ button:hover {
         align-items: center;
         padding: 10px;
     }
-    
+
+    .booking-section {
+        height: 300px;
+    }
+
+    .booking-time h1 {
+        font-size: 36px;
+    }
+
     .booking-time h4 {
         font-size: 20px;
     }
 
     .booking-section h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .payment-details h1 {
         font-size: 28px;
     }
+
+
 }
