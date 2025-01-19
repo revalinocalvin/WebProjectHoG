@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import '../../styles/profilePage.css';
+import { useAuth } from '../../context/AuthContext'; 
 import { Link } from 'react-router-dom'; // Import Link
 
 const ProfilePage = () => {
+    const { username } = useAuth();
     const [profile] = useState({
-        username: 'Roroaji',
-        name: 'Gusti Raden Rangga',
+        username: {username},
+        name: {username},
         email: 'mahasiswa@gmail.com',
         phone: '08121212121'
     });
@@ -25,8 +27,8 @@ const ProfilePage = () => {
                 <div className="profile-info">
                     <div className="profile-details">
                         <h2>Profil</h2>
-                        <p>{profile.username}<span>: Username</span></p>
-                        <p>{profile.name}<span>: Nama</span></p>
+                        <p>{username}<span>: Username</span></p>
+                        <p>{username}<span>: Nama</span></p>
                         <p>{profile.email}<span>: Email</span></p>
                         <p>{profile.phone}<span>: No. Telp</span></p>
                     </div>

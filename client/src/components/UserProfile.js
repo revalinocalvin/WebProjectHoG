@@ -1,10 +1,12 @@
 // components/UserProfile.js
 import React, { useState, useEffect } from 'react';
 import '../styles/userProfile.css'; // Tambahkan CSS untuk styling
+import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
     // State untuk menyimpan data user
+    const { username } = useAuth();
     const [userData, setUserData] = useState({
         username: '',
         points: 0,
@@ -32,7 +34,7 @@ const UserProfile = () => {
                 }
                 const data = await response.json();
                 setUserData({
-                    username: data.username,
+                    username: {username},
                     points: data.points,
                     billingTime: data.billingTime,
                     nextBooking: data.nextBooking,
@@ -52,7 +54,7 @@ return (
                 <img src="photoprofile.png" alt="Profile" className="profile-pic" />
             </Link>
             <div className="profile-header">
-                <h3>{userData.username || 'username...'}</h3>
+                <h3>{username}</h3>
                 <p className="points">POIN: {userData.points}</p>
             </div>
             <div className="billing-info">
