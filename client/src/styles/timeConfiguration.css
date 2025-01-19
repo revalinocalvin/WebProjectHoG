@@ -12,6 +12,14 @@
     font-size: 20px;
 }
 
+.back-ground {
+    background-image: url(/public/background_persegi.png);
+    background-repeat: no-repeat;
+    background-position-y: 300px;
+    width: 1500px;
+    justify-items: center;
+}
+
 .time-configuration {
     max-width: 1200px;
     display: flex; 
@@ -53,17 +61,18 @@
 }
 
 button {
-    background-color: #2DCC70;
+    background-color: #2484FC;
     color: white;
     border: none;
-    margin: 10px auto;
+    margin: 10px 0;
+    margin-right: 60%;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #2ab664;
+    background-color: #53a0ff;
 }
 
 .computer-info {
@@ -97,12 +106,16 @@ button:hover {
 }
 
 .payment-section {
-    background-color: #F5F7FA; /* Warna latar belakang */
+    background-image: url(/public/background_qris.png);
+    background-repeat: no-repeat;
+    background-size: 2000px;
+    background-position-x: 350px;
+    background-color: #ffffff; /* Warna latar belakang */
     border-radius: 10px;
     padding: 20px 30px;
     justify-items: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Bayangan lembut */ /* Jarak antar elemen */
-    margin-bottom: 50px;
+    margin: 0 -555px 10px;
 }
 
 .payment-details {

@@ -1,5 +1,9 @@
 /* DashboardPage.css */
 .dashboard-container {
+    background-image: url(/public/background_abstrak.png);
+    background-repeat: no-repeat;
+    background-position-x: 1200px;
+    background-position-y: -50px;
     display: flex; /* Menggunakan flexbox untuk tata letak */
     justify-content: space-between; /* Memisahkan elemen utama dan profil pengguna */
     padding: 20px;
@@ -52,9 +56,9 @@
 }
 
 .date-item.today {
-    background-color: #007bff;
+    background-color: #2484FC;
     color: white;
-    border: 1px solid #007bff;
+    border: 1px solid #2484FC;
 }
 
 .user-profile {
@@ -70,6 +74,7 @@
 
 @media (max-width: 768px) {
     .dashboard-container{
+        background-position-x: 300px;
         justify-content: center;
     }
 

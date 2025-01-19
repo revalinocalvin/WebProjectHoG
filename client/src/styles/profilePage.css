@@ -1,3 +1,10 @@
+.profile-back {
+    background-image: url(/public/background_abstrak.png);
+    background-position-x: 1500px;
+    background-repeat: no-repeat;
+    justify-items: center;
+}
+
 .profile-page {
     max-width: 900px;
     margin: 5% auto 2%;
