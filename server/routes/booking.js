@@ -121,7 +121,6 @@ router.get('/', protect, async (req, res) => {
 });
 
 
-module.exports = router;
 
 
 // Update Status Pembayaran
@@ -145,6 +144,33 @@ router.get('/user/:userId', [protect, authorize('admin')], async (req, res) => {
         return res.status(404).send('No bookings found for this user.');
     }
     res.status(200).json(bookings);
+});
+
+
+router.delete('/:id', protect, authorize('admin'), async (req, res) => {
+    const booking = await Booking.findById(req.params.id);
+    if (!booking) return res.status(404).send('Booking not found');
+    await booking.remove();
+    res.status(200).send('Booking removed');
+});
+
+router.delete('/:id', protect, async (req, res) => {
+    try {
+        const booking = await Booking.findById(req.params.id);
+
+        if (!booking) {
+            return res.status(404).send('Booking not found');
+        }
+
+        if (booking.user.toString() !== req.user.id) {
+            return res.status(403).send('You are not authorized to delete this booking');
+        }
+        await booking.remove();
+        res.status(200).send('Booking removed');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server error');
+    }
 });
 
 // Endpoint untuk Pengguna Melihat Riwayat Booking Mereka Sendiri
